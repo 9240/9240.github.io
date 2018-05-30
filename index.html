@@ -152,6 +152,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-github-pages-hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/github-pages-hexo搭建个人博客/">github pages+hexo搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/30/github-pages-hexo搭建个人博客/" class="archive-article-date">
+  	<time datetime="2018-05-30T11:52:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>博主在学习了git命令后，自然而然的学习了github，然后得知github pages+hexo可以搭建个人博客后，于是在网上搜了一些教程，费劲千辛万苦，踩了N多坑，终于搭建成功了，效果就是你现在看到的这个样子。由于这种教程网上很多，我就简短的分享一下步骤及我的爬坑经历。</p>
+<h2 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h2><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><p>电脑上装好Nodejs , Git , github账号（电脑中已有SSH KEYS）</p>
+<p>Hexo 安装命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-本地搭建"><a href="#2-本地搭建" class="headerlink" title="2. 本地搭建"></a>2. 本地搭建</h3><p>使用Hexo建站,进入新建文件夹（站点根目录），右键选择Git bash，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>该命令会在目标文件夹内建立网站所需要的所有文件。接下来是安装依赖包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<p>到此，本地Hexo博客已经搭好了，浏览器输入localhost:4000可查看查看。</p>
+<h3 id="3-部署到github"><a href="#3-部署到github" class="headerlink" title="3. 部署到github"></a>3. 部署到github</h3><ol>
+<li>在自己的GitHub账号下创建一个新的仓库，命名为username.github.io (<strong>注意：username是你的账号名</strong>)</li>
+<li>配置SSH KEYS,如果没有就添加一个</li>
+<li>测试,输入如下命名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果是下面的反馈：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="string">'github.com (207.97.227.239)'</span> can<span class="string">'t be established.RSA key fingerprint is16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<strong>yes</strong>就好，然后会看到：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi cnfeat! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
+<p>设置用户信息，输入如下命名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"张三"</span>//张三替换为自己的真名</span><br><span class="line">$ git config --global user.email  <span class="string">"zhangsan@qq.com"</span>//填写自己的邮箱</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-本地的博客更新到GitHub的库中"><a href="#4-本地的博客更新到GitHub的库中" class="headerlink" title="4. 本地的博客更新到GitHub的库中"></a>4. 本地的博客更新到GitHub的库中</h3><ol>
+<li>找到username.github.io项目，复制链接</li>
+<li>用vim命令打开站点根目录下的_config.yml文件，作如下修改<br>deploy:<br>　　type： git<br>　　repository： <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:张三/张三.github.io.git(这就是4.1中复制的链接)<br>　　branch： master</li>
+<li>进入站点文件夹执行如下命名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>执行结束前会让你输入github密码，之后就可以访问https://张三.github.io 看到你的博客了，在别人电脑上也可以哦，</p>
+<h3 id="5-爬坑"><a href="#5-爬坑" class="headerlink" title="5. 爬坑"></a>5. 爬坑</h3><h5 id="1-ssh-T-git-github-com"><a href="#1-ssh-T-git-github-com" class="headerlink" title="1. ssh -T git@github.com"></a>1. ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>输出为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi cnfeat! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
+<p>由于之前看的教程里面没有这个，后面半句话然我又重新折腾了一遍，这一次又是这种结果,然后就搜索这句话,然来直接执行如下命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"张三"</span>//张三替换为自己的真名</span><br><span class="line">$ git config --global user.email  <span class="string">"zhangsan@qq.com"</span>//填写自己的邮箱</span><br></pre></td></tr></table></figure></p>
+<h5 id="2-个人图像问题"><a href="#2-个人图像问题" class="headerlink" title="2. 个人图像问题"></a>2. 个人图像问题</h5><p>如果用本地图片路径为 ./img/xxx.jpg只有在主页图像才会显示，进入到其中一条博客就会找不到,如果路径为 …../img/xxx.jpg,那么主页的图像又不能显示,所以我的主页图像是网图</p>
+<h5 id="3-“所有文章”页面不能搜索"><a href="#3-“所有文章”页面不能搜索" class="headerlink" title="3. “所有文章”页面不能搜索"></a>3. “所有文章”页面不能搜索</h5><p>Yilia(没用其他的主题)主题下点击”所有文章”提示需要安装一个模块并在Yilia文件夹下的_config.yml文件中加入一些配置(照着他说的做就好了)</p>
+<h5 id="4-vim修改配置"><a href="#4-vim修改配置" class="headerlink" title="4. vim修改配置"></a>4. vim修改配置</h5><p>修改配置的时候，在”:”后面一定要敲一个空格。另外本教程涉及的vim命令如下：</p>
+<ol>
+<li>vim 文件名——打开文件eg：vim _config.yml</li>
+<li>i ：进入编辑模式</li>
+<li>Esc退出编辑模式</li>
+<li>:wq保存并退出编辑模式</li>
+</ol>
+<p>教程到此就结束了(第一次使用这东西，慢慢摸索)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/30/github-pages-hexo搭建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
