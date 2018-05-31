@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="郑维维个人博客">
 <meta property="og:description" content="博主在学习了git命令后，自然而然的学习了github，然后得知github pages+hexo可以搭建个人博客后，于是在网上搜了一些教程，费劲千辛万苦，踩了N多坑，终于搭建成功了，效果就是你现在看到的这个样子。由于这种教程网上很多，我就简短的分享一下步骤及我的爬坑经历。 步骤如下1. 准备工作电脑上装好Nodejs , Git , github账号（电脑中已有SSH KEYS） Hexo 安装">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-31T03:59:21.808Z">
+<meta property="og:updated_time" content="2018-05-31T04:02:36.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github pages+hexo搭建个人博客">
 <meta name="twitter:description" content="博主在学习了git命令后，自然而然的学习了github，然后得知github pages+hexo可以搭建个人博客后，于是在网上搜了一些教程，费劲千辛万苦，踩了N多坑，终于搭建成功了，效果就是你现在看到的这个样子。由于这种教程网上很多，我就简短的分享一下步骤及我的爬坑经历。 步骤如下1. 准备工作电脑上装好Nodejs , Git , github账号（电脑中已有SSH KEYS） Hexo 安装">
@@ -194,7 +194,7 @@
 </ol>
 <p>执行结束前会让你输入github密码，之后就可以访问https://张三.github.io 看到你的博客了，在别人电脑上也可以哦，</p>
 <h3 id="5-爬坑"><a href="#5-爬坑" class="headerlink" title="5. 爬坑"></a>5. 爬坑</h3><h5 id="1-ssh-T-git-github-com"><a href="#1-ssh-T-git-github-com" class="headerlink" title="1. ssh -T git@github.com"></a>1. ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>输出为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi cnfeat! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
+<p>输出为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi 9240! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
 <p>由于之前看的教程里面没有这个，后面半句话然我又重新折腾了一遍，这一次又是这种结果，然后就搜索这句话，然来直接执行如下命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"张三"</span>//张三替换为自己的真名</span><br><span class="line">$ git config --global user.email  <span class="string">"zhangsan@qq.com"</span>//填写自己的邮箱</span><br></pre></td></tr></table></figure></p>
 <h5 id="2-个人图像问题"><a href="#2-个人图像问题" class="headerlink" title="2. 个人图像问题"></a>2. 个人图像问题</h5><p>如果用本地图片路径为 ./img/xxx.jpg只有在主页图像才会显示,进入到其中一条博客就会找不到，如果路径为 …../img/xxx.jpg ，那么主页的图像又不能显示,所以我在github pages上又部署了另一种类型的静态网页存放博客上的图片</p>
 <h5 id="3-“所有文章”页面不能搜索"><a href="#3-“所有文章”页面不能搜索" class="headerlink" title="3. “所有文章”页面不能搜索"></a>3. “所有文章”页面不能搜索</h5><p>Yilia（没用其他的主题）主题下点击”所有文章”，提示需要安装一个模块并在Yilia文件夹下的_config.yml文件中加入一些配置（照着他说的做就好了）</p>
