@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://9240.github.io/"/>
-  <updated>2018-05-31T13:28:45.254Z</updated>
+  <updated>2018-06-01T09:47:58.423Z</updated>
   <id>https://9240.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue生命周期</title>
+    <link href="https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>https://9240.github.io/2018/06/01/vue生命周期/</id>
+    <published>2018-06-01T06:30:04.771Z</published>
+    <updated>2018-06-01T09:47:58.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>下图是Vue文档里关于实例生命周期的解释图</p><p><center><img src="https://cn.vuejs.org/images/lifecycle.png" alt=""></center></p><h3 id="先贴代码"><a href="#先贴代码" class="headerlink" title="先贴代码"></a>先贴代码</h3><a id="more"></a><pre><code>&lt;div id=&quot;app&quot;&gt;    &lt;h2&gt;{{msg}}&lt;/h2&gt;    &lt;button @click=&quot;changemsg&quot;&gt;更新&lt;/button&gt;&lt;/div&gt;&lt;script&gt;    new Vue({        el:&apos;#app&apos;,        data(){            return{                msg:&apos;vue生命周期&apos;            }        },        methods:{            changemsg(){                this.msg = &apos;我更新了&apos;            }        },        beforeCreate(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;beforeCreate&quot;)        },        created(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;created&quot;)        },        beforeMount(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;beforeMount&quot;)        },        mounted(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;mounted&quot;)        },        beforeUpdate(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;beforeUpdate&quot;)        },        updated(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;updated&quot;)        },        beforeDestroy(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;beforeDestroy&quot;)        },        destroyed(){            console.log(`msg: ${this.msg}, el: ${this.$el}`)            alert(&quot;destroyed&quot;)        }    })&lt;/script&gt;</code></pre><ol><li><strong>beforeCreate：组件实例化之前执行,data和$el都是undefined</strong><br><center><img src="https://9240.github.io/myblogpic/img/beforeCreate.png" alt=""></center><br><br></li><li><strong>created：组件实例化完毕，但页面还未显示，data可以被访问</strong><br><center><img src="https://9240.github.io/myblogpic/img/created.png" alt=""></center><br><br></li><li><strong>beforeMount：组件挂载前，页面仍未展示，但虚拟DOM已经配置</strong><br><center><img src="https://9240.github.io/myblogpic/img/beforeMount.png" alt=""></center><br><br></li><li><strong>mounted：组件挂载后，此方法执行后，页面显示</strong><br><center><img src="https://9240.github.io/myblogpic/img/mounted1.png" alt=""></center><br><center><img src="https://9240.github.io/myblogpic/img/mounted2.png" alt=""></center><br><br></li><li><strong>beforeUpdate：组件更新前，页面仍未更新，但虚拟DOM已经配置</strong><br><center><img src="https://9240.github.io/myblogpic/img/beforeUpdate.png" alt=""></center><br><br></li><li><strong>update：组件更新，此方法执行后，页面显示</strong><br><center><img src="https://9240.github.io/myblogpic/img/updated1.png" alt=""></center><br><center><img src="https://9240.github.io/myblogpic/img/updated2.png" alt=""></center><br><br></li><li><strong>beforeDestory：组件销毁前</strong></li><li><strong>destoryed：组件销毁</strong></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;下图是Vue文档里关于实例生命周期的解释图&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;https://cn.vuejs.org/images/lifecycle.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h3 id=&quot;先贴代码&quot;&gt;&lt;a href=&quot;#先贴代码&quot; class=&quot;headerlink&quot; title=&quot;先贴代码&quot;&gt;&lt;/a&gt;先贴代码&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://9240.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>github pages+hexo搭建个人博客</title>
