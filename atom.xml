@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://9240.github.io/"/>
-  <updated>2018-06-01T09:57:08.712Z</updated>
+  <updated>2018-06-22T08:13:30.523Z</updated>
   <id>https://9240.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue传值</title>
+    <link href="https://9240.github.io/2018/06/03/vue%E4%BC%A0%E5%80%BC/"/>
+    <id>https://9240.github.io/2018/06/03/vue传值/</id>
+    <published>2018-06-03T09:06:53.349Z</published>
+    <updated>2018-06-22T08:13:30.523Z</updated>
+    
+    <content type="html"><![CDATA[<p><center><img src="https://images.pexels.com/photos/442600/pexels-photo-442600.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt=""></center></p><h3 id="1-父组件向子组件传值-props"><a href="#1-父组件向子组件传值-props" class="headerlink" title="1. 父组件向子组件传值 (props)"></a>1. 父组件向子组件传值 (props)</h3><a id="more"></a><p>父组件</p><pre><code>&lt;template&gt;    &lt;nav id=&quot;navbar&quot;&gt;        &lt;ul&gt;            &lt;li&gt;                &lt;router-link to=&apos;/child&apos; v-bind:message=&quot;title&quot;&gt;render函数&lt;/router-link&gt;            &lt;/li&gt;        &lt;/ul&gt;    &lt;/nav&gt;&lt;/template&gt;&lt;script&gt;    export default{        data(){            return {                title:&apos;传到子组件的值&apos;            }        }    }&lt;/script&gt;</code></pre><p>子组件</p><pre><code>&lt;template&gt;  &lt;div id=&quot;propsvalue&quot;&gt;     {{msg}}  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default { props:{   msg:{     type:String,     default:&quot;我是默认值&quot;   } }}&lt;/script&gt;</code></pre><h3 id="2-子组件向父组件传值-emit"><a href="#2-子组件向父组件传值-emit" class="headerlink" title="2. 子组件向父组件传值($emit)"></a>2. 子组件向父组件传值($emit)</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;div id=&quot;app&quot;&gt;        &lt;h2 ref=&apos;mytitle&apos;&gt;{{msg}}&lt;/h2&gt;        &lt;child v-on:getchild=&apos;content&apos; v-bind:list=&apos;list&apos;&gt;&lt;/child&gt;    &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;&lt;script&gt;    new Vue({        el:&apos;#app&apos;,        data(){            return{                msg:&apos;hello word&apos;            }        },        methods:{            content(str){                this.$refs.mytitle.innerHTML = str;            }        },        //子组件        components:{            &apos;child&apos;:{                data(){                    return{                        list:[&apos;第一项&apos;,&apos;第二项&apos;,&apos;第三项&apos;],                        childmsg:&apos;子组件的内容&apos;                    }                },                template:`                    &lt;div&gt;                        &lt;ul&gt;                            &lt;li v-for=&quot;(item,index) in list&quot; v-on:click=&apos;change&apos;&gt;{{item}}&lt;/li&gt;                        &lt;/ul&gt;                    &lt;/div&gt;                `,                methods:{                    change(e){                        this.$emit(&apos;getchild&apos;,e.target.innerText)                    }                }            }        }    })&lt;/script&gt;</code></pre><h3 id="3-非父子组件的传值-vue空实例"><a href="#3-非父子组件的传值-vue空实例" class="headerlink" title="3. 非父子组件的传值(vue空实例)"></a>3. 非父子组件的传值(vue空实例)</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;div id=&quot;app&quot;&gt;        &lt;theheader&gt;&lt;/theheader&gt;        &lt;thelist&gt;&lt;/thelist&gt;    &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;&lt;script&gt;    //vue空实例作为中间传达的工具    var vm = new Vue();    new Vue({        el:&apos;#app&apos;,        components:{            &apos;theheader&apos;:{                data(){                    return{                        msg:&apos;组件一&apos;                    }                },                template:`                    &lt;div&gt;                        &lt;h2&gt;{{msg}}&lt;/h2&gt;                    &lt;/div&gt;                `,                mounted(){                    //$on接收                    vm.$on(&apos;change&apos;,(str)=&gt;{                        this.msg = str                    })                }            },            &apos;thelist&apos;:{                data(){                    return{                        list:[&apos;第一项&apos;,&apos;第二项&apos;,&apos;第三项&apos;]                    }                },                template:`                    &lt;div&gt;                        &lt;ul&gt;                            &lt;li v-for=&quot;(item,index) in list&quot; v-on:click=&apos;getcontent&apos;&gt;{{item}}&lt;/li&gt;                        &lt;/ul&gt;                    &lt;/div&gt;                `,                methods:{                    getcontent(e){                        //$emit发布                        vm.$emit(&apos;change&apos;,e.target.innerHTML)                    }                }            }        }    })&lt;/script&gt;</code></pre><h3 id="先这样吧，最近期末考试挺忙，后面还会在更。"><a href="#先这样吧，最近期末考试挺忙，后面还会在更。" class="headerlink" title="先这样吧，最近期末考试挺忙，后面还会在更。"></a>先这样吧，最近期末考试挺忙，后面还会在更。</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;center&gt;&lt;img src=&quot;https://images.pexels.com/photos/442600/pexels-photo-442600.jpeg?auto=compress&amp;amp;cs=tinysrgb&amp;amp;h=350&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-父组件向子组件传值-props&quot;&gt;&lt;a href=&quot;#1-父组件向子组件传值-props&quot; class=&quot;headerlink&quot; title=&quot;1. 父组件向子组件传值 (props)&quot;&gt;&lt;/a&gt;1. 父组件向子组件传值 (props)&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://9240.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue生命周期</title>
