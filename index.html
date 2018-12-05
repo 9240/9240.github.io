@@ -148,6 +148,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/mongodb/">mongodb基本操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/05/mongodb/" class="archive-article-date">
+  	<time datetime="2018-12-05T11:00:46.015Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不知不觉已经在这家公司实习了4个多月，大三暑假加入找工作的大军，自己运气好，七月十六号正式在所在公司上班，因为初入职场，面对真实的项目，而自己精力有限，所以这博客也好久没有更新了，最近PC端，移动端都完成了大的改造，自己也面临着毕设，所以抽点时间学习一下mongodb。以下做一些简单的学习记录。</p>
+<p><center><img src="https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt=""></center></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1.下载安装"></a>1.下载安装</h3><p><a href="https://9240.github.io" title="mongodb官网">下载mongodb</a>，下载完，找到文件，双击，一路回车即可完成安装。</p>
+<h3 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2.配置环境变量"></a>2.配置环境变量</h3><p>复制mongodb安装的bin目录到系统变量path中。</p>
+<h3 id="3-启动mongodb服务端"><a href="#3-启动mongodb服务端" class="headerlink" title="3.启动mongodb服务端"></a>3.启动mongodb服务端</h3><p>新建数据存储文件夹，执行命令行mongod –dbpath 文件夹，出现下图即服务端启动成功。</p>
+<p><center><img src="https://9240.github.io/myblogpic/img/mongodb1.png" alt=""></center></p>
+<h3 id="4-启动mongodb客户端"><a href="#4-启动mongodb客户端" class="headerlink" title="4.启动mongodb客户端"></a>4.启动mongodb客户端</h3><p>执行命令行mongo（mongo 127.0.0.1:27017）,出现下图即客户端启动成功。</p>
+<p><center><img src="https://9240.github.io/myblogpic/img/mongodb2.png" alt=""></center></p>
+<h3 id="5-准备工作做完，下面就可以愉快的敲代码了。"><a href="#5-准备工作做完，下面就可以愉快的敲代码了。" class="headerlink" title="5.准备工作做完，下面就可以愉快的敲代码了。"></a>5.准备工作做完，下面就可以愉快的敲代码了。</h3><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><h4 id="1-简单命令"><a href="#1-简单命令" class="headerlink" title="1.简单命令"></a>1.简单命令</h4><p>查看所有数据库列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show dbs</span><br></pre></td></tr></table></figure></p>
+<p>查看当前数据库的集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure></p>
+<p>使用数据库/创建数据库(创建操作时，需要往collections里插入数据才能创建成功)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ use dbname</span><br></pre></td></tr></table></figure></p>
+<p>数据库集合中插入数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.insert(&#123;<span class="string">"name"</span>:<span class="string">"zhangsan"</span>,<span class="string">"age"</span>:21&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>查看数据库集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure></p>
+<p>删除当前所在数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.dropDatabase()</span><br></pre></td></tr></table></figure></p>
+<p>删除指定集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.drop()</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-数据查找"><a href="#2-数据查找" class="headerlink" title="2.数据查找"></a>2.数据查找</h4><p>1.查找指定集合（userinfo）中所有数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find()</span><br></pre></td></tr></table></figure></p>
+<p>2.查询去掉后的当前聚集集合中的某列的重复数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.distinct(<span class="string">"name"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>3.查询 age = 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userinfo.find(&#123;<span class="string">"age"</span>:22&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>4.查询 age &gt; 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>5.查询 age &lt; 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>6.查询 age &gt;= 25 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>7.查询 age &lt;= 25 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>8.查询 age &gt;= 23 并且 age &lt;= 26<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 23, <span class="variable">$lte</span>: 26&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>9.查询 name 中包含 mongo 的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /mongo/&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>10.查询 name 中以 mongo 开头的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /^mongo/&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>11.查询指定列 name、age 数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>12.查询指定列 name、age 数据, age &gt; 25<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 25&#125;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>13.按照年龄排序 1 升序 -1 降序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().sort(&#123;age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>14.查询 name = zhangsan, age = 22 的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: <span class="string">'zhangsan'</span>, age: 22&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>15.查询前 5 条数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(5)</span><br></pre></td></tr></table></figure></p>
+<p>16.查询 10 条以后的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().skip(10)</span><br></pre></td></tr></table></figure></p>
+<p>17.查询在 5-10 之间的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(10).skip(5)</span><br></pre></td></tr></table></figure></p>
+<p>18.or 与 查询<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;<span class="variable">$or</span>: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>19.findOne 查询第一条数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.findOne()</span><br></pre></td></tr></table></figure></p>
+<p>20.查询某个结果集的记录条数 统计数量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;).count()</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/05/mongodb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -303,85 +411,6 @@
 
 
   
-    <article id="post-github-pages-hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/github-pages-hexo搭建个人博客/">github pages+hexo搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/30/github-pages-hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-05-30T11:52:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我在学习了git命令后，自然而然的学习了github，然后得知github pages+hexo可以搭建个人博客后，于是在网上搜了一些教程，费劲千辛万苦，踩了N多坑，终于搭建成功了，效果就是你现在看到的这个样子。由于这种教程网上很多，我就简短的分享一下步骤及我的爬坑经历。</p>
-<p><center><img src="https://9240.github.io/myblogpic/img/0530.jpeg" alt=""></center></p>
-<h2 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h2><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><p>电脑上装好Nodejs , Git , github账号（电脑中已有SSH KEYS）</p>
-<p>Hexo 安装命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/05/30/github-pages-hexo搭建个人博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/30/github-pages-hexo搭建个人博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -488,6 +517,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
             
             <div class="clearfix"></div>
