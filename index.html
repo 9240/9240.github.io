@@ -148,6 +148,1187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-力软前端组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/10/力软前端组件/">力软前端组件</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/10/力软前端组件/" class="archive-article-date">
+  	<time datetime="2019-04-10T07:47:51.051Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我看到的力软敏捷开发框架的文档写的相当简洁，且只有部分组件的文档。为了以后加入的伙伴能更快的上手，也为了自己提升开发效率，于是对着源代码写了下面的文档，由于项目需要，部分组件进行了细微修改，另外处于其他原因，所有组件名都更改为waxxx字样。</p>
+<center><img src="https://images.pexels.com/photos/2089379/pexels-photo-2089379.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt=""></center>
+
+<h2 id="一-时间查询框"><a href="#一-时间查询框" class="headerlink" title="一.时间查询框"></a>一.时间查询框</h2><p><strong>方法：$(‘#id’).wadate(op);</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">dfdata</td>
+<td style="text-align:center">自定义数据</td>
+<td style="text-align:center">[]</td>
+</tr>
+<tr>
+<td style="text-align:center">mShow</td>
+<td style="text-align:center">是否显示当月按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">premShow</td>
+<td style="text-align:center">是否显示上月按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">jShow</td>
+<td style="text-align:center">是否显示当季度按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">prejShow</td>
+<td style="text-align:center">是否显示上季度按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">premShow</td>
+<td style="text-align:center">是否显示上月按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">ysShow</td>
+<td style="text-align:center">是否显示上半年按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">yxShow</td>
+<td style="text-align:center">是否显示下半年按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">preyShow</td>
+<td style="text-align:center">是否显示去年按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">yShow</td>
+<td style="text-align:center">是否显示今年按钮</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">dfvalue</td>
+<td style="text-align:center">默认选择值</td>
+<td style="text-align:center">未选择[preM/currentM/preJ/currentJ/yS/yX/preY/currentY/zhua]</td>
+</tr>
+<tr>
+<td style="text-align:center">selectfn</td>
+<td style="text-align:center">选择后回调函数</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：</strong></p>
+<pre><code>$(&quot;#id&quot;).wadate({
+     dfdata: [
+         { name: &apos;今天&apos;, begin: function () { return learun.getDate(&apos;yyyy-MM-dd 00:00:00&apos;) }, end: function () { return learun.getDate(&apos;yyyy-MM-dd 23:59:59&apos;) } },
+         { name: &apos;近7天&apos;, begin: function () { return learun.getDate(&apos;yyyy-MM-dd 00:00:00&apos;, &apos;d&apos;, -6) }, end: function () { return learun.getDate(&apos;yyyy-MM-dd 23:59:59&apos;) } },
+         { name: &apos;近1个月&apos;, begin: function () { return learun.getDate(&apos;yyyy-MM-dd 00:00:00&apos;, &apos;m&apos;, -1) }, end: function () { return learun.getDate(&apos;yyyy-MM-dd 23:59:59&apos;) } },
+         { name: &apos;近3个月&apos;, begin: function () { return learun.getDate(&apos;yyyy-MM-dd 00:00:00&apos;, &apos;m&apos;, -3) }, end: function () { return learun.getDate(&apos;yyyy-MM-dd 23:59:59&apos;) } },
+     ],
+     mShow: false,
+     premShow: false,
+     jShow: false,
+     prejShow: false,
+     ysShow: false,
+     yxShow: false,
+     preyShow: false,
+     yShow: false,
+     dfvalue: &apos;1&apos;,
+     selectfn: function (begin, end) {
+         logbegin = begin;
+         logend = end;
+         page.search();
+     }
+ });
+</code></pre><h2 id="二-下拉选择框"><a href="#二-下拉选择框" class="headerlink" title="二.下拉选择框"></a>二.下拉选择框</h2><p><strong>方法：$(‘#id’).waselect(op);</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">placeholder</td>
+<td style="text-align:center">占位符</td>
+<td style="text-align:center">请选择</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">数据展示类型1.default：普通；2.tree：树形数据；3.treemultiple：树形多选；multiple：普通多选</td>
+<td style="text-align:center">default</td>
+</tr>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">数据值字段名</td>
+<td style="text-align:center">id</td>
+</tr>
+<tr>
+<td style="text-align:center">text</td>
+<td style="text-align:center">数据显示字段名</td>
+<td style="text-align:center">text</td>
+</tr>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">数据标题字段名</td>
+<td style="text-align:center">title</td>
+</tr>
+<tr>
+<td style="text-align:center">maxHeight</td>
+<td style="text-align:center">下拉框最大高度</td>
+<td style="text-align:center">200</td>
+</tr>
+<tr>
+<td style="text-align:center">width</td>
+<td style="text-align:center">下拉框宽度</td>
+<td style="text-align:center">跟随输入框宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">allowSearch</td>
+<td style="text-align:center">是否允许搜索</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">获取数据地址</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">data</td>
+<td style="text-align:center">下拉选择数据</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">param</td>
+<td style="text-align:center">请求后台参数</td>
+<td style="text-align:center">Null</td>
+</tr>
+<tr>
+<td style="text-align:center">method</td>
+<td style="text-align:center">请求后台方法：GET、POST</td>
+<td style="text-align:center">GET</td>
+</tr>
+<tr>
+<td style="text-align:center">select</td>
+<td style="text-align:center">选择后回调函数</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-树形插件"><a href="#三-树形插件" class="headerlink" title="三.树形插件"></a>三.树形插件</h2><p><strong>方法：$(‘#id’).watree(op);</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">icons</td>
+<td style="text-align:center">图标</td>
+<td style="text-align:center">checkbox_0.png[checkbox_0.png/checkbox_1.png/checkbox_2.png]</td>
+</tr>
+<tr>
+<td style="text-align:center">method</td>
+<td style="text-align:center">请求后台方法：GET、POST</td>
+<td style="text-align:center">GET</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">请求后台地址</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">param</td>
+<td style="text-align:center">请求参数</td>
+<td style="text-align:center">Null</td>
+</tr>
+<tr>
+<td style="text-align:center">data</td>
+<td style="text-align:center">数据集</td>
+<td style="text-align:center">[]</td>
+</tr>
+<tr>
+<td style="text-align:center">isAllExpand</td>
+<td style="text-align:center">节点是否展开</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">cbiconpath</td>
+<td style="text-align:center">节点前的图标路径</td>
+<td style="text-align:center">/Content/images/wayperfecttree/</td>
+</tr>
+<tr>
+<td style="text-align:center">nodeClick</td>
+<td style="text-align:center">点击事件</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">nodeCheck</td>
+<td style="text-align:center">选中事件</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：</strong></p>
+<pre><code>$(&apos;#id&apos;).watree({
+    url: top.$.rootUrl + &apos;/LR_OrganizationModule/Company/GetTree&apos;,
+    icons:&quot;&quot;,
+    method:&quot;GET&quot;,
+    isAllExpand:false,
+    cbiconpath:&quot;&quot;,
+    param: { },
+    nodeClick:function(){
+
+    },
+    nodeCheck:function(){
+
+    }
+});
+</code></pre><p><strong>data数据格式</strong></p>
+<pre><code>[{
+    id,
+    text,显示数据
+    value,选中值
+    showcheck,bool,是否显示多选框
+    checkstate,int,选中状态 0未选中 1选中
+    hasChildren,bool,是否有子节点
+    isexpand,bool,是否展开
+    complete,bool
+    ChildNodes,[],子节点数据
+}]
+</code></pre><p><strong>拓展方法 $(‘#id’).watreeSet(name,op)（具体使用参照源码）;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name可选值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">allNoCheck</td>
+<td style="text-align:center">获取未选中项</td>
+</tr>
+<tr>
+<td style="text-align:center">allCheck</td>
+<td style="text-align:center">获取选中项</td>
+</tr>
+<tr>
+<td style="text-align:center">setCheck</td>
+<td style="text-align:center">置为选中</td>
+</tr>
+<tr>
+<td style="text-align:center">setValue</td>
+<td style="text-align:center">设置value</td>
+</tr>
+<tr>
+<td style="text-align:center">currentItem</td>
+<td style="text-align:center">获取当前选中item</td>
+</tr>
+<tr>
+<td style="text-align:center">getCheckNodesEx</td>
+<td style="text-align:center">获取最下面的选中项</td>
+</tr>
+<tr>
+<td style="text-align:center">getCheckNodeIds</td>
+<td style="text-align:center">获取选中id,返回数组格式</td>
+</tr>
+<tr>
+<td style="text-align:center">search</td>
+<td style="text-align:center">节点搜索</td>
+</tr>
+<tr>
+<td style="text-align:center">refresh</td>
+<td style="text-align:center">刷新树结构</td>
+</tr>
+<tr>
+<td style="text-align:center">getCheckNodeIdsByPath</td>
+<td style="text-align:center">(当前版本未实现)</td>
+</tr>
+<tr>
+<td style="text-align:center">addNode</td>
+<td style="text-align:center">添加节点(当前版本未实现)</td>
+</tr>
+<tr>
+<td style="text-align:center">updateNode</td>
+<td style="text-align:center">更新节点(当前版本未实现)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四-表格插件"><a href="#四-表格插件" class="headerlink" title="四.表格插件"></a>四.表格插件</h2><p><strong>方法：$(“#id”).jfGrid(op);</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">数据服务地址</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">param</td>
+<td style="text-align:center">请求参数</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">rowdatas</td>
+<td style="text-align:center">列表数据</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">subGridData</td>
+<td style="text-align:center">子列表数据</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">datatype</td>
+<td style="text-align:center">数据类型</td>
+<td style="text-align:center">array</td>
+</tr>
+<tr>
+<td style="text-align:center">headData</td>
+<td style="text-align:center">表格列数据</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">isShowNum</td>
+<td style="text-align:center">是否显示序号</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">isMultiselect</td>
+<td style="text-align:center">是否允许多选</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">multiselectfield</td>
+<td style="text-align:center">多选绑定字段</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">isSubGrid</td>
+<td style="text-align:center">是否有子表</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">subGridRowExpanded</td>
+<td style="text-align:center">子表展开后回调函数</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">subGridHeight</td>
+<td style="text-align:center">子表高度</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">onSelectRow</td>
+<td style="text-align:center">选中一行后回调函数</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">onRenderComplete</td>
+<td style="text-align:center">表格加载完后调用</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">isPage</td>
+<td style="text-align:center">是否分页</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">sort</td>
+<td style="text-align:center">是否排序</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">sidx</td>
+<td style="text-align:center">排序字段</td>
+<td style="text-align:center">‘’</td>
+</tr>
+<tr>
+<td style="text-align:center">sord</td>
+<td style="text-align:center">排序方式</td>
+<td style="text-align:center">ASC</td>
+</tr>
+<tr>
+<td style="text-align:center">isTree</td>
+<td style="text-align:center">是否树形显示（没有分页的情况下才支持）</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">mainId</td>
+<td style="text-align:center">关联的主键</td>
+<td style="text-align:center">id</td>
+</tr>
+<tr>
+<td style="text-align:center">parentId</td>
+<td style="text-align:center">树形关联字段</td>
+<td style="text-align:center">parentId</td>
+</tr>
+<tr>
+<td style="text-align:center">reloadSelected</td>
+<td style="text-align:center">刷新后是否还选择之前选中的,只支持单选</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">isAutoHeight</td>
+<td style="text-align:center">自动适应表格高度</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">footerrow</td>
+<td style="text-align:center">底部合计条</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">isEidt</td>
+<td style="text-align:center">是否编辑</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">minheight</td>
+<td style="text-align:center">最低高度</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">height</td>
+<td style="text-align:center">高度</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">isStatistics</td>
+<td style="text-align:center">统计条</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>data数据格式</strong></p>
+<pre><code>[{
+    page:1,页码
+    records:722,数据条数
+    rows:[],展示的数据
+    total：15,页数
+}]
+</code></pre><p><strong>拓展方法1:$(‘#id’).jfGridSet(name,op)（具体使用参照源码）;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name可选值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">reload</td>
+<td style="text-align:center">刷新表格</td>
+</tr>
+<tr>
+<td style="text-align:center">refreshdata</td>
+<td style="text-align:center">更新数据</td>
+</tr>
+<tr>
+<td style="text-align:center">addRow</td>
+<td style="text-align:center">添加行</td>
+</tr>
+<tr>
+<td style="text-align:center">updateRow</td>
+<td style="text-align:center">更新（修改）行</td>
+</tr>
+<tr>
+<td style="text-align:center">removeRow</td>
+<td style="text-align:center">移除（删除）行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>拓展方法2:$(‘#id’).jfGridGet(name)（具体使用参照源码）;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name可选值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">rowdata</td>
+<td style="text-align:center">返回选中行</td>
+</tr>
+<tr>
+<td style="text-align:center">rowdatas</td>
+<td style="text-align:center">返回表格所有数据（当前页）</td>
+</tr>
+<tr>
+<td style="text-align:center">rowdatasByArray</td>
+<td style="text-align:center">树形结构转数组</td>
+</tr>
+<tr>
+<td style="text-align:center">settingInfo</td>
+<td style="text-align:center">返回表格所有信息</td>
+</tr>
+<tr>
+<td style="text-align:center">showData</td>
+<td style="text-align:center">返回当前页可见的所有数据（1,2,5区别）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五-弹框组件-wa-layer-js"><a href="#五-弹框组件-wa-layer-js" class="headerlink" title="五.弹框组件(wa-layer.js)"></a>五.弹框组件(wa-layer.js)</h2><p>1.询问框</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">msg</td>
+<td style="text-align:center">询问框的展示信息</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">callback</td>
+<td style="text-align:center">关闭时的回调函数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：</strong></p>
+<pre><code>layerConfirm(&quot;提示信息&quot;，function(){
+    //do something
+})
+</code></pre><p>2.自定义表单弹层</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">id</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">标题</td>
+<td style="text-align:center">系统窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">width</td>
+<td style="text-align:center">宽度</td>
+<td style="text-align:center">550</td>
+</tr>
+<tr>
+<td style="text-align:center">height</td>
+<td style="text-align:center">高度</td>
+<td style="text-align:center">400</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">弹框页面url</td>
+<td style="text-align:center">error</td>
+</tr>
+<tr>
+<td style="text-align:center">btn</td>
+<td style="text-align:center">页面底部按钮</td>
+<td style="text-align:center">[‘确认’,’关闭’]</td>
+</tr>
+<tr>
+<td style="text-align:center">callBack</td>
+<td style="text-align:center">第一个按钮点击的回调函数</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">maxmin</td>
+<td style="text-align:center">是否允许最大最小</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">end</td>
+<td style="text-align:center">窗体关闭后的回调函数</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：</strong></p>
+<pre><code>wayperfect.layerForm({
+    id: &apos;form&apos;,
+    title: &apos;新增&apos;,
+    url: top.$.rootUrl + &apos;/WA_CodeDemo/Consumer/Form&apos;,
+    width: 600,
+    height: 400,
+    callBack: function (id) {
+        return top[id].acceptClick(refreshGirdData);
+    }
+});
+</code></pre><h2 id="六-日期组件-wa-data-js"><a href="#六-日期组件-wa-data-js" class="headerlink" title="六.日期组件(wa-data.js)"></a>六.日期组件(wa-data.js)</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">parseDate(strDate)</td>
+<td style="text-align:center">字串转化成日期</td>
+<td style="text-align:center">wayperfect.parseDate(“2019-02-20”)</td>
+</tr>
+<tr>
+<td style="text-align:center">formatDate(v, format)</td>
+<td style="text-align:center">日期格式化v日期,format:格式</td>
+<td style="text-align:center">wayperfect.formatDate(‘/Date(1550646100652)/‘,”yyyy-MM-dd-hh:mm:ss”)</td>
+</tr>
+<tr>
+<td style="text-align:center">getDate(format, strInterval, Number)</td>
+<td style="text-align:center">获取当前时间,format为格式,strInterval为[s,n,h,d,w,q,m,y],strInterval增加的数（可负）</td>
+<td style="text-align:center">wayperfect.getDate(“yyyy-MM-dd-hh:mm:ss”,’d’,-3)</td>
+</tr>
+<tr>
+<td style="text-align:center">getMonth()</td>
+<td style="text-align:center">当前月的开始时间与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getPreMonth()</td>
+<td style="text-align:center">上个月的开始与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getCurrentQuarter()</td>
+<td style="text-align:center">当前季度的开始与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getPreQuarter()</td>
+<td style="text-align:center">上个季度的开始与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getQuarter(Year, month)</td>
+<td style="text-align:center">指定Year,month所在季度的开始与结束时间</td>
+<td style="text-align:center">wayperfect.getQuarter(2019,8)</td>
+</tr>
+<tr>
+<td style="text-align:center">getYear()</td>
+<td style="text-align:center">当前年份的开始时间与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getPreYear()</td>
+<td style="text-align:center">上一年份的开始时间与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getFirstHalfYear()</td>
+<td style="text-align:center">当前年份的上半年开始时间与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">getSecondHalfYear()</td>
+<td style="text-align:center">当前年份的下半年开始时间与结束时间</td>
+<td style="text-align:center">null</td>
+</tr>
+</tbody>
+</table>
+<h3 id="原型链上添加的四个方法"><a href="#原型链上添加的四个方法" class="headerlink" title="原型链上添加的四个方法"></a>原型链上添加的四个方法</h3><ul>
+<li>日期计算：DateAdd(strInterval,Number)</li>
+<li>比较日期差 dtEnd 格式为日期型或者 有效日期格式字符串：DateDiff（strInterval,dtEnd）</li>
+<li>取得当前日期所在月的最大天数：MaxDayOfDate()</li>
+<li>判断闰年：isLeapYear（）</li>
+</ul>
+<h2 id="七-ajax操作方法（wa-ajax-js）"><a href="#七-ajax操作方法（wa-ajax-js）" class="headerlink" title="七.ajax操作方法（wa-ajax.js）"></a>七.ajax操作方法（wa-ajax.js）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">httpErrorLog</td>
+<td style="text-align:center">通信异常调用</td>
+</tr>
+<tr>
+<td style="text-align:center">httpCode</td>
+<td style="text-align:center">http请求返回数据码</td>
+</tr>
+<tr>
+<td style="text-align:center">httpAsyncGet(url,callback)</td>
+<td style="text-align:center">get请求方法（异步）:url地址,callback回调函数</td>
+</tr>
+<tr>
+<td style="text-align:center">httpGet(url,param)</td>
+<td style="text-align:center">get请求方法（同步）:url地址,param参数</td>
+</tr>
+<tr>
+<td style="text-align:center">httpAsyncPost(url,param,callback)</td>
+<td style="text-align:center">post请求方法（异步）:url地址,param参数,callback回调函数</td>
+</tr>
+<tr>
+<td style="text-align:center">httpPost(url,param,callback)</td>
+<td style="text-align:center">post请求方法（同步步）:url地址,param参数,callback回调函数</td>
+</tr>
+<tr>
+<td style="text-align:center">httpAsync(type,url,param,callback)</td>
+<td style="text-align:center">ajax 异步封装</td>
+</tr>
+<tr>
+<td style="text-align:center">deleteForm(url,param,callback)</td>
+<td style="text-align:center">异步post删除数据</td>
+</tr>
+<tr>
+<td style="text-align:center">postForm(url,param,callback)</td>
+<td style="text-align:center">异步post提交数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八-基础操作类（wa-base-js）"><a href="#八-基础操作类（wa-base-js）" class="headerlink" title="八.基础操作类（wa-base.js）"></a>八.基础操作类（wa-base.js）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">newGuid</td>
+<td style="text-align:center">返回一个32位的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">loading(isShow,text)</td>
+<td style="text-align:center">加载提示</td>
+</tr>
+<tr>
+<td style="text-align:center">loadstyles(url)</td>
+<td style="text-align:center">动态加载css文件</td>
+</tr>
+<tr>
+<td style="text-align:center">iframe(Id,_frames)</td>
+<td style="text-align:center">获取iframe</td>
+</tr>
+<tr>
+<td style="text-align:center">changeUrlParam(url,key,value)</td>
+<td style="text-align:center">改变url参数值</td>
+</tr>
+<tr>
+<td style="text-align:center">toDecimal(num)</td>
+<td style="text-align:center">把num转化为10进制</td>
+</tr>
+<tr>
+<td style="text-align:center">countFileSize(size)</td>
+<td style="text-align:center">文件大小转换(byte转成KB，MB，GB)</td>
+</tr>
+<tr>
+<td style="text-align:center">arrayCopy(data)</td>
+<td style="text-align:center">数组复制</td>
+</tr>
+<tr>
+<td style="text-align:center">checkrow（id）</td>
+<td style="text-align:center">检测数据是否选中</td>
+</tr>
+<tr>
+<td style="text-align:center">alert.[success，info，warning，error] (msg)</td>
+<td style="text-align:center">提示消息</td>
+</tr>
+<tr>
+<td style="text-align:center">download(options)</td>
+<td style="text-align:center">下载文件options={method,url,param},默认GET</td>
+</tr>
+<tr>
+<td style="text-align:center">commafy(num)</td>
+<td style="text-align:center">数字格式转换成千分位</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="九-表单验证（wa-validator-helper-js）"><a href="#九-表单验证（wa-validator-helper-js）" class="headerlink" title="九.表单验证（wa-validator-helper.js）"></a>九.表单验证（wa-validator-helper.js）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">isNotNull(obj)</td>
+<td style="text-align:center">验证不为空</td>
+</tr>
+<tr>
+<td style="text-align:center">isNum(obj)</td>
+<td style="text-align:center">验证数字</td>
+</tr>
+<tr>
+<td style="text-align:center">isNumOrNull(obj)</td>
+<td style="text-align:center">验证数字 或者 空</td>
+</tr>
+<tr>
+<td style="text-align:center">isEmail(obj)</td>
+<td style="text-align:center">验证Email</td>
+</tr>
+<tr>
+<td style="text-align:center">isEmailOrNull</td>
+<td style="text-align:center">Email验证 email   或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isEnglishStr(obj)</td>
+<td style="text-align:center">验证只能输入英文字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">isEnglishStrOrNull(obj)</td>
+<td style="text-align:center">验证只能输入英文字符串 或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isTelephone(obj)</td>
+<td style="text-align:center">验证是否电话号码 phone</td>
+</tr>
+<tr>
+<td style="text-align:center">isTelephoneOrNull(obj)</td>
+<td style="text-align:center">验证是否电话号码 phone或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isMobile(obj)</td>
+<td style="text-align:center">验证是否手机号 mobile</td>
+</tr>
+<tr>
+<td style="text-align:center">isMobileOrnull(obj)</td>
+<td style="text-align:center">验证是否手机号 mobile或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isMobileOrPhone(obj)</td>
+<td style="text-align:center">验证是否手机号或电话号码 mobile phone</td>
+</tr>
+<tr>
+<td style="text-align:center">isMobileOrPhoneOrNull(obj)</td>
+<td style="text-align:center">验证是否手机号或电话号码 mobile phone或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isUri(obj)</td>
+<td style="text-align:center">验证网址 uri</td>
+</tr>
+<tr>
+<td style="text-align:center">isUriOrNull(obj)</td>
+<td style="text-align:center">验证网址 uri或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isDate(obj)</td>
+<td style="text-align:center">判断日期类型是否为YYYY-MM-DD格式的类型 date</td>
+</tr>
+<tr>
+<td style="text-align:center">isDateOrNull(obj)</td>
+<td style="text-align:center">判断日期类型是否为YYYY-MM-DD格式的类型 date或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isDateTime(obj)</td>
+<td style="text-align:center">判断日期类型是否为YYYY-MM-DD hh:mm:ss格式的类型 datetime</td>
+</tr>
+<tr>
+<td style="text-align:center">isDateTimeOrNull(obj)</td>
+<td style="text-align:center">判断日期类型是否为YYYY-MM-DD hh:mm:ss格式的类型 datetime或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isTime(obj)</td>
+<td style="text-align:center">判断日期类型是否为hh:mm:ss格式的类型 time</td>
+</tr>
+<tr>
+<td style="text-align:center">isTimeOrNull(obj)</td>
+<td style="text-align:center">判断日期类型是否为hh:mm:ss格式的类型 time或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isChinese(obj)</td>
+<td style="text-align:center">判断输入的字符是否为中文</td>
+</tr>
+<tr>
+<td style="text-align:center">isChineseOrNull(obj)</td>
+<td style="text-align:center">判断输入的字符是否为中文 cchar或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isZip(obj)</td>
+<td style="text-align:center">判断输入的邮编(只能为六位)是否正确 zip</td>
+</tr>
+<tr>
+<td style="text-align:center">isZipOrNull(obj)</td>
+<td style="text-align:center">判断输入的邮编(只能为六位)是否正确 zip或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isDouble(obj)</td>
+<td style="text-align:center">判断输入的字符是否为双精度 double</td>
+</tr>
+<tr>
+<td style="text-align:center">isDoubleOrNull(obj)</td>
+<td style="text-align:center">判断输入的字符是否为双精度 double或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isIDCard(obj)</td>
+<td style="text-align:center">判断是否为身份证 idcard</td>
+</tr>
+<tr>
+<td style="text-align:center">isIDCardOrNull(obj)</td>
+<td style="text-align:center">判断是否为身份证 idcard或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isIP(obj)</td>
+<td style="text-align:center">判断是否为IP地址格式</td>
+</tr>
+<tr>
+<td style="text-align:center">isIPOrNull(obj)</td>
+<td style="text-align:center">判断是否为IP地址格式 或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isLenNum(obj,n)</td>
+<td style="text-align:center">验证是否是n位数字字符串编号 nnum</td>
+</tr>
+<tr>
+<td style="text-align:center">isLenNumOrNull(obj,n)</td>
+<td style="text-align:center">验证是否是n位数字字符串编号 nnum或者null,空</td>
+</tr>
+<tr>
+<td style="text-align:center">isLenStr(obj,n)</td>
+<td style="text-align:center">验证是否小于等于n位数的字符串 nchar</td>
+</tr>
+<tr>
+<td style="text-align:center">isLenStrOrNull(obj,n)</td>
+<td style="text-align:center">验证是否小于等于n位数的字符串 nchar或者null,空</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十-右键插件（contextmenu）"><a href="#十-右键插件（contextmenu）" class="headerlink" title="十.右键插件（contextmenu）"></a>十.右键插件（contextmenu）</h2><p><strong>示例</strong></p>
+<pre><code>$(&quot;#girdtable&quot;).wacontextmenu({
+    menulist: [
+        { id: 1, text: &quot;复制&quot; },
+        { id: 2, text: &quot;粘贴&quot; }
+    ],
+    before:false
+})
+</code></pre><h2 id="十一-弹层选择控件（formselect）"><a href="#十一-弹层选择控件（formselect）" class="headerlink" title="十一.弹层选择控件（formselect）"></a>十一.弹层选择控件（formselect）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">placeholder</td>
+<td style="text-align:center">默认展示字样</td>
+<td style="text-align:center">“请选择”</td>
+</tr>
+<tr>
+<td style="text-align:center">icon</td>
+<td style="text-align:center">图标</td>
+<td style="text-align:center">“fa-plus”</td>
+</tr>
+<tr>
+<td style="text-align:center">layerUrl</td>
+<td style="text-align:center">弹层地址</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">layerParam</td>
+<td style="text-align:center">弹层参数</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">layerUrlW</td>
+<td style="text-align:center">弹层宽度</td>
+<td style="text-align:center">600</td>
+</tr>
+<tr>
+<td style="text-align:center">layerUrlH</td>
+<td style="text-align:center">弹层高度</td>
+<td style="text-align:center">400</td>
+</tr>
+<tr>
+<td style="text-align:center">dataUrl</td>
+<td style="text-align:center">获取数据地址</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">select</td>
+<td style="text-align:center">选择事件</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例代码:</strong></p>
+<pre><code>$(&apos;#id&apos;).waformselect({
+    placeholder: &apos;请选择&apos;,
+    layerUrl: top.$.rootUrl + &apos;/WA_SystemModule/DataSource/SelectForm&apos;,
+    layerUrlH: 500,
+    layerUrlW: 800,
+    dataUrl: top.$.rootUrl + &apos;/WA_SystemModule/DataSource/GetNameByCode&apos;
+});
+</code></pre><h2 id="十二-wayperfectSelect（普通，多选，树形数据，gird，搜索，输入框选择器）"><a href="#十二-wayperfectSelect（普通，多选，树形数据，gird，搜索，输入框选择器）" class="headerlink" title="十二.wayperfectSelect（普通，多选，树形数据，gird，搜索，输入框选择器）"></a>十二.wayperfectSelect（普通，多选，树形数据，gird，搜索，输入框选择器）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">placeholder</td>
+<td style="text-align:center">默认展示字样</td>
+<td style="text-align:center">“请选择”</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">类型可选[default,tree,treemultiple,gird,multiple]</td>
+<td style="text-align:center">default</td>
+</tr>
+<tr>
+<td style="text-align:center">maxHeight</td>
+<td style="text-align:center">展开最大高度</td>
+<td style="text-align:center">200</td>
+</tr>
+<tr>
+<td style="text-align:center">width</td>
+<td style="text-align:center">宽度</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">allowSearch</td>
+<td style="text-align:center">是否允许搜索</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">数据接口</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">data</td>
+<td style="text-align:center">数据集</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">param</td>
+<td style="text-align:center">访问数据接口参数</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">method</td>
+<td style="text-align:center">接口请求的方法</td>
+<td style="text-align:center">“GET”</td>
+</tr>
+<tr>
+<td style="text-align:center">select</td>
+<td style="text-align:center">选择事件</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>data数据格式(数组)</strong></p>
+<pre><code>[{
+    value:1,
+    text:&quot;text&quot;,
+    name:&quot;xxx&quot;
+    .
+    .
+    .
+}]
+</code></pre><p>拓展了3个方法：waselectRefresh，waselectGet，waselectSet</p>
+<h2 id="十三-wa-uploader-表单附件选择插件"><a href="#十三-wa-uploader-表单附件选择插件" class="headerlink" title="十三.wa-uploader 表单附件选择插件"></a>十三.wa-uploader 表单附件选择插件</h2><p><strong>代码示例：</strong></p>
+<pre><code>&lt;div id=&quot;id&quot;&gt;&lt;/div&gt;
+
+$(&quot;#id&quot;).waUploader()
+</code></pre><h2 id="十四-UE富文本编辑器"><a href="#十四-UE富文本编辑器" class="headerlink" title="十四.UE富文本编辑器"></a>十四.UE富文本编辑器</h2><p>引入ueditor.config.js、ueditor.all.js、zh-cn.js等js文件</p>
+<pre><code>&lt;script id=&quot;editor&quot; type=&quot;text/plain&quot; style=&quot;height:270px;&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="时间轴方法（降序）"><a href="#时间轴方法（降序）" class="headerlink" title="时间轴方法（降序）"></a>时间轴方法（降序）</h2><h2 id="自定义表单（custmerform）"><a href="#自定义表单（custmerform）" class="headerlink" title="自定义表单（custmerform）"></a>自定义表单（custmerform）</h2><h2 id="自定义查询（custmerquery）"><a href="#自定义查询（custmerquery）" class="headerlink" title="自定义查询（custmerquery）"></a>自定义查询（custmerquery）</h2><h2 id="即时聊天-系统内部通讯"><a href="#即时聊天-系统内部通讯" class="headerlink" title="即时聊天-系统内部通讯"></a>即时聊天-系统内部通讯</h2><h2 id="waLayout-页面布局插件（目前支持左右布局）"><a href="#waLayout-页面布局插件（目前支持左右布局）" class="headerlink" title="waLayout 页面布局插件（目前支持左右布局）"></a>waLayout 页面布局插件（目前支持左右布局）</h2><h2 id="工作流引擎api操作方法类"><a href="#工作流引擎api操作方法类" class="headerlink" title="工作流引擎api操作方法类"></a>工作流引擎api操作方法类</h2><h2 id="工作流绘制组件"><a href="#工作流绘制组件" class="headerlink" title="工作流绘制组件"></a>工作流绘制组件</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">力软敏捷开发6.0</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/10/力软前端组件/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-gitbook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -306,86 +1487,9 @@
 
 
   
-    <article id="post-vue传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/03/vue传值/">vue传值</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/03/vue传值/" class="archive-article-date">
-  	<time datetime="2018-06-03T09:06:53.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><center><img src="https://images.pexels.com/photos/442600/pexels-photo-442600.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt=""></center></p>
-<h3 id="1-父组件向子组件传值-props"><a href="#1-父组件向子组件传值-props" class="headerlink" title="1. 父组件向子组件传值 (props)"></a>1. 父组件向子组件传值 (props)</h3>
-        
-          <a class="article-more-a" href="/2018/06/03/vue传值/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/03/vue传值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -497,6 +1601,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">力软敏捷开发6.0</a>
               </li>
             
             <div class="clearfix"></div>
