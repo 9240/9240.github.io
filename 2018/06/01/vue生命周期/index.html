@@ -12,7 +12,7 @@
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue生命周期">
-<meta property="og:url" content="https://9240.github.io/2018/06/01/vue生命周期/index.html">
+<meta property="og:url" content="https://9240.github.io/2019/04/18/vue生命周期/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
 <meta property="og:description" content="下图是Vue文档里关于实例生命周期的解释图  先贴代码">
 <meta property="og:locale" content="default">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://9240.github.io/myblogpic/img/beforeUpdate.png">
 <meta property="og:image" content="https://9240.github.io/myblogpic/img/updated1.png">
 <meta property="og:image" content="https://9240.github.io/myblogpic/img/updated2.png">
-<meta property="og:updated_time" content="2018-06-01T09:57:08.712Z">
+<meta property="og:updated_time" content="2019-04-28T12:42:42.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue生命周期">
 <meta name="twitter:description" content="下图是Vue文档里关于实例生命周期的解释图  先贴代码">
@@ -169,8 +169,8 @@
   
 
         
-        <a href="/2018/06/01/vue生命周期/" class="archive-article-date">
-  	<time datetime="2018-06-01T06:30:04.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+        <a href="/2019/04/18/vue生命周期/" class="archive-article-date">
+  	<time datetime="2019-04-18T07:12:31.834Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
 </a>
         
       </header>
@@ -243,6 +243,7 @@
 <li><strong>beforeDestory：组件销毁前</strong></li>
 <li><strong>destoryed：组件销毁</strong></li>
 </ol>
+<p>总结：vue实例从创建到销毁住哟有8个阶段。创建前、创建后、渲染前、选然后、更新前、更新后、销毁前、销毁后。<br>使用new Vue()创建vue的实例，然后调用Init()函数初始化对象信息；在渲染前会检查el属性，如果没有就调用$mount(el)方法；然后检查是否有template属性，如果有就编译template的内容进行渲染，如果没有，就编译el指定的节点内容进行渲染。然后创建虚拟DOM $el对象，并用替换挂载节点的内容渲染到试图上。在渲染后和更新后就可以进行dom操作。</p>
 
       
 
@@ -338,7 +339,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2018/06/01/vue生命周期/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2019/04/18/vue生命周期/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -352,18 +353,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/03/vue传值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/18/力软前端组件/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vue传值
+          力软前端组件
         
       </div>
     </a>
   
   
-    <a href="/2018/05/30/github-pages-hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">github pages+hexo搭建个人博客</div>
+    <a href="/2019/04/18/vue传值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue传值</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -489,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +502,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
