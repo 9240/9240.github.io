@@ -27,7 +27,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;apply()，call()，和bind()都是用来改变函数执行时的上下文，也就是改变this的指向问题，是prototype的方法，引入是因为js没有将this设置成形参。一般都是库里面用，不推荐自己使用call和apply。&lt;br&gt;call()和apply()唯一区别是参数不一样，call()是apply()的语法糖；&lt;br&gt;bind()是返回一个新函数，相比其他两个比较常用。而apply()和call()是立即调用。&lt;br&gt;
+      &lt;p&gt;apply()，call()，和bind()都是用来改变函数执行时的上下文，也就是改变this的指向问题，是prototype的方法，引入是因为js没有将this设置成形参。一般都是库里面用，不推荐自己使用call和apply。&lt;br&gt;call()和apply()唯一区别是参数不一样，call()是apply()的语法糖；&lt;br&gt;bind()是返回一个新函数，相比其他两个比较常用。而apply()和call()是立即调用。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -50,7 +50,7 @@
       &lt;p&gt;我看到的力软敏捷开发框架的文档写的相当简洁，且只有部分组件的文档。为了以后加入的伙伴能更快的上手，也为了自己提升开发效率，于是对着源代码写了下面的文档，由于项目需要，部分组件进行了细微修改，另外由于其他原因，所有组件名都更改为waxxx字样。&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;https://images.pexels.com/photos/2089379/pexels-photo-2089379.jpeg?auto=compress&amp;amp;cs=tinysrgb&amp;amp;dpr=1&amp;amp;w=500&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
-&lt;h2 id=&quot;一-时间查询框&quot;&gt;&lt;a href=&quot;#一-时间查询框&quot; class=&quot;headerlink&quot; title=&quot;一.时间查询框&quot;&gt;&lt;/a&gt;一.时间查询框&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;方法：$(‘#id’).wadate(op);&lt;/strong&gt;&lt;br&gt;
+&lt;h2 id=&quot;一-时间查询框&quot;&gt;&lt;a href=&quot;#一-时间查询框&quot; class=&quot;headerlink&quot; title=&quot;一.时间查询框&quot;&gt;&lt;/a&gt;一.时间查询框&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;方法：$(‘#id’).wadate(op);&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -73,7 +73,7 @@
       &lt;p&gt;不知不觉已经在这家公司实习了4个多月，大三暑假加入找工作的大军，自己运气好，七月十六号正式在所在公司上班，因为初入职场，面对真实的项目，而自己精力有限，所以这博客也好久没有更新了，最近PC端，移动端都完成了大的改造，自己也面临着毕设，所以抽点时间学习一下mongodb。以下做一些简单的学习记录。&lt;/p&gt;
 &lt;p&gt;&lt;center&gt;&lt;img src=&quot;https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&amp;amp;cs=tinysrgb&amp;amp;dpr=1&amp;amp;w=500&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h3 id=&quot;1-下载安装&quot;&gt;&lt;a href=&quot;#1-下载安装&quot; class=&quot;headerlink&quot; title=&quot;1.下载安装&quot;&gt;&lt;/a&gt;1.下载安装&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://9240.github.io&quot; title=&quot;mongodb官网&quot;&gt;下载mongodb&lt;/a&gt;，下载完，找到文件，双击，一路回车即可完成安装。&lt;/p&gt;
-&lt;h3 id=&quot;2-配置环境变量&quot;&gt;&lt;a href=&quot;#2-配置环境变量&quot; class=&quot;headerlink&quot; title=&quot;2.配置环境变量&quot;&gt;&lt;/a&gt;2.配置环境变量&lt;/h3&gt;&lt;p&gt;复制mongodb安装的bin目录到系统变量path中。&lt;br&gt;
+&lt;h3 id=&quot;2-配置环境变量&quot;&gt;&lt;a href=&quot;#2-配置环境变量&quot; class=&quot;headerlink&quot; title=&quot;2.配置环境变量&quot;&gt;&lt;/a&gt;2.配置环境变量&lt;/h3&gt;&lt;p&gt;复制mongodb安装的bin目录到系统变量path中。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
