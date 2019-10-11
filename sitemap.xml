@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://9240.github.io/2019/05/02/js%E4%B8%ADapply,call,%E5%92%8Cbind%E5%87%BD%E6%95%B0/</loc>
+    <loc>https://9240.github.io/2018/12/25/mongodb/</loc>
     
-    <lastmod>2019-10-06T14:40:02.109Z</lastmod>
+    <lastmod>2019-10-11T15:44:21.732Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://9240.github.io/2018/12/25/mongodb/</loc>
+    <loc>https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     
-    <lastmod>2019-04-30T05:45:40.491Z</lastmod>
+    <lastmod>2019-10-11T15:42:25.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://9240.github.io/2019/05/02/js%E4%B8%ADapply,call,%E5%92%8Cbind%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2019-10-06T14:40:02.109Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>https://9240.github.io/2019/04/10/%E5%8A%9B%E8%BD%AF%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/</loc>
     
     <lastmod>2019-04-30T05:45:13.456Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
-    
-    <lastmod>2019-04-30T05:45:09.366Z</lastmod>
     
   </url>
   
