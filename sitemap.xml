@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://9240.github.io/2018/06/03/vue%E4%BC%A0%E5%80%BC/</loc>
+    
+    <lastmod>2019-11-01T16:13:39.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://9240.github.io/2019/04/10/%E5%8A%9B%E8%BD%AF%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/</loc>
+    
+    <lastmod>2019-11-01T16:09:28.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    
+    <lastmod>2019-11-01T16:07:04.603Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://9240.github.io/2018/12/05/gitbook/</loc>
+    
+    <lastmod>2019-11-01T16:04:46.029Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://9240.github.io/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/</loc>
+    
+    <lastmod>2019-11-01T15:56:33.161Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://9240.github.io/2019/05/02/js%E4%B8%ADapply,call,%E5%92%8Cbind%E5%87%BD%E6%95%B0/</loc>
     
-    <lastmod>2019-10-27T12:21:38.441Z</lastmod>
+    <lastmod>2019-11-01T15:54:35.658Z</lastmod>
     
   </url>
   
@@ -16,37 +51,9 @@
   </url>
   
   <url>
-    <loc>https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
-    
-    <lastmod>2019-10-11T15:54:13.849Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://9240.github.io/2018/12/05/gitbook/</loc>
-    
-    <lastmod>2019-04-30T05:45:18.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://9240.github.io/2019/04/10/%E5%8A%9B%E8%BD%AF%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/</loc>
-    
-    <lastmod>2019-04-30T05:45:13.456Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://9240.github.io/2018/05/29/hello-world/</loc>
     
     <lastmod>2019-04-30T05:44:22.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://9240.github.io/2018/06/03/vue%E4%BC%A0%E5%80%BC/</loc>
-    
-    <lastmod>2019-04-30T05:43:39.691Z</lastmod>
     
   </url>
   
