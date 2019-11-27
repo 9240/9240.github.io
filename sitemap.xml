@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://9240.github.io/2018/12/25/mongodb/</loc>
+    
+    <lastmod>2019-11-27T12:27:08.805Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://9240.github.io/2018/06/03/vue%E4%BC%A0%E5%80%BC/</loc>
     
     <lastmod>2019-11-01T16:13:39.240Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://9240.github.io/2019/05/02/js%E4%B8%ADapply,call,%E5%92%8Cbind%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2019-11-01T15:54:35.658Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://9240.github.io/2018/12/25/mongodb/</loc>
-    
-    <lastmod>2019-10-11T15:54:28.390Z</lastmod>
     
   </url>
   
