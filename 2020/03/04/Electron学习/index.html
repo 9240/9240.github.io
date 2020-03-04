@@ -17,7 +17,7 @@
 <meta property="og:description" content="app钩子函数 ‘will-finish-launching’ 当应用程序完成基础的启动的时候被触发。 ‘ready’ 当 Electron 完成初始化时被触发 ‘window-all-closed’ 当所有的窗口都被关闭时触发。 ‘before-quit’ 在应用程序开始关闭窗口之前触发。 ‘will-quit’ 当所有窗口都已关闭并且应用程序将退出时发出。 ‘quit’ 在应用程序退出时发出">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=800">
-<meta property="og:updated_time" content="2020-03-04T08:55:34.238Z">
+<meta property="og:updated_time" content="2020-03-04T08:57:31.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Electron学习">
 <meta name="twitter:description" content="app钩子函数 ‘will-finish-launching’ 当应用程序完成基础的启动的时候被触发。 ‘ready’ 当 Electron 完成初始化时被触发 ‘window-all-closed’ 当所有的窗口都被关闭时触发。 ‘before-quit’ 在应用程序开始关闭窗口之前触发。 ‘will-quit’ 当所有窗口都已关闭并且应用程序将退出时发出。 ‘quit’ 在应用程序退出时发出">
@@ -184,7 +184,8 @@
 <li><code>‘web-contents-created’</code> 在创建新的 webContents 时发出。</li>
 <li><code>‘session-created’</code> 当 Electron创建了一个新的 session后被触发.</li>
 <li><code>‘remote-require’</code> 在 webContents 的渲染器进程中调用 remote.require() 时发出</li>
-<li><code>‘remote-get-global’</code> 在 webContents 的渲染器进程中调用 remote.getGlobal() 时发出。<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3></li>
+<li><code>‘remote-get-global’</code> 在 webContents 的渲染器进程中调用 remote.getGlobal() 时发出。<a id="more"></a>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3></li>
 <li><code>app.quit()</code> 关闭所有窗口 将首先发出 before-quit 事件。</li>
 <li><code>app.exit()</code> 立即退出程序并返回</li>
 <li><code>app.relaunch()</code> 从当前实例退出，重启应用。</li>
