@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://9240.github.io">
-  <title>JavaScript中的this | 郑维维个人博客</title>
+  <title>隐藏滚动条 | 郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.核心函数调用原语call方法call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）123456function hello(world) &amp;#123;  console.log(this)  console.log(&quot;hello &quot; + world);&amp;#125;hello.call(&quot;9240&quot;, &quot;world&quot;) //9240 hello()方">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="兼容 IE10+、Safari、Chrome、火狐等浏览器的隐藏滚动条 12345678html::-webkit-scrollbar &amp;#123;  display: none; /* Safari and Chrome */&amp;#125;html &amp;#123;  -ms-overflow-style: none; /* IE10+ */  scrollbar-width: none; /* 火狐">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中的this">
-<meta property="og:url" content="https://9240.github.io/2019/08/16/javascript中的this/index.html">
+<meta property="og:title" content="隐藏滚动条">
+<meta property="og:url" content="https://9240.github.io/2020/05/31/隐藏滚动条/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
-<meta property="og:description" content="1.核心函数调用原语call方法call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）123456function hello(world) &amp;#123;  console.log(this)  console.log(&quot;hello &quot; + world);&amp;#125;hello.call(&quot;9240&quot;, &quot;world&quot;) //9240 hello()方">
+<meta property="og:description" content="兼容 IE10+、Safari、Chrome、火狐等浏览器的隐藏滚动条 12345678html::-webkit-scrollbar &amp;#123;  display: none; /* Safari and Chrome */&amp;#125;html &amp;#123;  -ms-overflow-style: none; /* IE10+ */  scrollbar-width: none; /* 火狐">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-01T15:56:33.161Z">
+<meta property="og:updated_time" content="2020-05-31T05:12:53.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript中的this">
-<meta name="twitter:description" content="1.核心函数调用原语call方法call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）123456function hello(world) &amp;#123;  console.log(this)  console.log(&quot;hello &quot; + world);&amp;#125;hello.call(&quot;9240&quot;, &quot;world&quot;) //9240 hello()方">
+<meta name="twitter:title" content="隐藏滚动条">
+<meta name="twitter:description" content="兼容 IE10+、Safari、Chrome、火狐等浏览器的隐藏滚动条 12345678html::-webkit-scrollbar &amp;#123;  display: none; /* Safari and Chrome */&amp;#125;html &amp;#123;  -ms-overflow-style: none; /* IE10+ */  scrollbar-width: none; /* 火狐">
   
     <link rel="alternative" href="/atom.xml" title="郑维维个人博客" type="application/atom+xml">
   
@@ -148,36 +148,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javascript中的this" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-隐藏滚动条" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript中的this
+      隐藏滚动条
     </h1>
   
 
         
-        <a href="/2019/08/16/javascript中的this/" class="archive-article-date">
-  	<time datetime="2019-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+        <a href="/2020/05/31/隐藏滚动条/" class="archive-article-date">
+  	<time datetime="2020-05-31T05:01:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-核心函数调用原语call方法"><a href="#1-核心函数调用原语call方法" class="headerlink" title="1.核心函数调用原语call方法"></a>1.核心函数调用原语call方法</h2><p>call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello.call(<span class="string">"9240"</span>, <span class="string">"world"</span>) <span class="comment">//9240</span></span><br></pre></td></tr></table></figure></p>
-<p>hello()方法设置”9240”为this,并传入一个参数”world”。这是JavaScript函数调用的核心原语</p>
-<h2 id="2-简单函数调用"><a href="#2-简单函数调用" class="headerlink" title="2.简单函数调用"></a>2.简单函数调用</h2><p>一直调用函数的call()方法比较麻烦,所以JavaScript允许我们直接调用该方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello(<span class="string">'world'</span>) <span class="comment">//Window</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p><code>this</code>指向了<code>Window</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello(<span class="string">'world'</span>) <span class="comment">//undefined</span></span><br><span class="line">hello.call(<span class="literal">undefined</span>,<span class="string">'world'</span>) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>在es5严格模式中<code>this</code>为<code>undefined</code>,即调用方式为<code>fn(…args)</code>与<code>fn.call(window [es5-strict:undefined],args)</code></p>
-<h2 id="3-对象方法的调用"><a href="#3-对象方法的调用" class="headerlink" title="3.对象方法的调用"></a>3.对象方法的调用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Brendan Eich"</span>,</span><br><span class="line">  hello: <span class="function"><span class="keyword">function</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.hello(<span class="string">"world"</span>) <span class="comment">//person</span></span><br><span class="line"></span><br><span class="line">person.hello.call(person, <span class="string">"world"</span>); <span class="comment">//person</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line">person = &#123; <span class="attr">name</span>: <span class="string">"Brendan Eich"</span> &#125;</span><br><span class="line">person.hello = hello;</span><br><span class="line">person.hello(<span class="string">"world"</span>) <span class="comment">//person</span></span><br><span class="line">hello(<span class="string">"world"</span>) <span class="comment">//Window</span></span><br></pre></td></tr></table></figure>
-<p>对象中方法的<code>this</code>被调用时才确定,即谁调用<code>this</code>指向谁</p>
+        <p>兼容 IE10+、Safari、Chrome、火狐等浏览器的隐藏滚动条</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none; <span class="comment">/* Safari and Chrome */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">-ms-overflow-style</span>: none; <span class="comment">/* IE10+ */</span></span><br><span class="line">  <span class="attribute">scrollbar-width</span>: none; <span class="comment">/* 火狐(新) */</span></span><br><span class="line">  <span class="attribute">overflow</span>: -moz-scrollbars-none; <span class="comment">/* 火狐(旧) */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -217,7 +209,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -273,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2019/08/16/javascript中的this/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2020/05/31/隐藏滚动条/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/04/Electron学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Electron学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/02/js中apply,call,和bind函数/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js中apply,call,和bind函数</div>
+    <a href="/2020/03/04/Electron学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Electron学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

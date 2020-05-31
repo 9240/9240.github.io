@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://9240.github.io">
   <title>Electron学习 | 郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,7 +40,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -275,7 +275,7 @@
 <h2 id="文件对象"><a href="#文件对象" class="headerlink" title="文件对象"></a>文件对象</h2><blockquote>
 <p>DOM的文件接口提供了关于原生文件的抽象，以便用户可以直接使用HTML5文件API处理原生文件。 Electron已经向 <code>文件</code> 接口添加了一个 <code>path</code> 属性, 在文件系统上暴露出文件的真实路径</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"drag"</span> <span class="attr">style</span>=<span class="string">"width: 200px;height: 200px;background-color: chartreuse;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> dragtest = <span class="built_in">document</span>.querySelector(<span class="string">'#drag'</span>)</span></span><br><span class="line"><span class="javascript">    dragtest.ondrop = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        e.preventDefault() <span class="comment">//必须阻止默认事件</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(e.dataTransfer.files[<span class="number">0</span>]) <span class="comment">//拖拽到app上的文件的真实路径</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    dragtest.ondragover = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        e.preventDefault() <span class="comment">//必须阻止默认事件</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"drag"</span> <span class="attr">style</span>=<span class="string">"width: 200px;height: 200px;background-color: chartreuse;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> dragtest = <span class="built_in">document</span>.querySelector(<span class="string">'#drag'</span>)</span></span><br><span class="line"><span class="javascript">    dragtest.ondrop = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        e.preventDefault() <span class="comment">//必须阻止默认事件</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(e.dataTransfer.files[<span class="number">0</span>]) <span class="comment">//拖拽到app上的文件的真实路径</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    dragtest.ondragover = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        e.preventDefault() <span class="comment">//必须阻止默认事件</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="网页间共享数据"><a href="#网页间共享数据" class="headerlink" title="网页间共享数据"></a>网页间共享数据</h2><ol>
 <li>使用<code>localStorage</code>，<code>sessionStorage</code> 或者 <code>IndexedDB</code>。</li>
 <li>使用<code>Electron</code>内的IPC机制实现，将数据村子主进程的某个全局变量中，然后在多个渲染进程中使用<code>remote</code>模块来访问它。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在主进程中</span></span><br><span class="line">global.data = &#123;</span><br><span class="line">    item:<span class="string">'value'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染进程中</span></span><br><span class="line"><span class="comment">// 第一个页面设置item</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'electron'</span>).remote.getGlobal(<span class="string">'data'</span>).item = <span class="string">'new value'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二个页面获取item</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'electron'</span>).remote.getGlobal(<span class="string">'data'</span>).item <span class="comment">// =&gt; 'new value'</span></span><br></pre></td></tr></table></figure>
@@ -469,6 +469,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/05/31/隐藏滚动条/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          隐藏滚动条
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/08/16/javascript中的this/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">JavaScript中的this</div>
@@ -594,10 +603,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -606,11 +611,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,11 +623,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">力软敏捷开发6.0</a>
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">力软敏捷开发6.0</a>
               </li>
             
             <div class="clearfix"></div>
