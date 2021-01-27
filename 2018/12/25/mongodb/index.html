@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://9240.github.io/2018/12/25/mongodb/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
 <meta property="og:description" content="![](https:&#x2F;&#x2F;images.pexels.com&#x2F;photos&#x2F;875858&#x2F;pexels-photo-875858.png?auto&#x3D;compress&amp;cs&#x3D;tinysrgb&amp;dpr&#x3D;1&amp;w&#x3D;500) ## 安装 ### 1.下载安装 [下载mongodb](https:&#x2F;&#x2F;www.mongodb.com&#x2F; &quot;mongodb官网&quot;)，下载完，找到文件，双击，一路回车即可完成安装。 ##">
-<meta property="og:locale">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-12-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-11-27T12:27:08.805Z">
 <meta property="article:author" content="郑维维">
@@ -191,7 +191,7 @@
 使用数据库/创建数据库(创建操作时，需要往collections里插入数据才能创建成功)
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ use dbname</span><br></pre></td></tr></table></figure>
 数据库集合中插入数据
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.insert(&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;age&quot;</span>:21&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.insert(&#123;<span class="string">"name"</span>:<span class="string">"zhangsan"</span>,<span class="string">"age"</span>:21&#125;)</span><br></pre></td></tr></table></figure>
 查看数据库集合
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure>
 删除当前所在数据库
@@ -202,9 +202,9 @@
 1.查找指定集合（userinfo）中所有数据
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find()</span><br></pre></td></tr></table></figure>
 2.查询去掉后的当前聚集集合中的某列的重复数据
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.distinct(<span class="string">&quot;name&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.distinct(<span class="string">"name"</span>)</span><br></pre></td></tr></table></figure>
 3.查询 age = 22 的记录
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userinfo.find(&#123;<span class="string">&quot;age&quot;</span>:22&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userinfo.find(&#123;<span class="string">"age"</span>:22&#125;)</span><br></pre></td></tr></table></figure>
 4.查询 age > 22 的记录
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure>
 5.查询 age < 22 的记录
@@ -226,7 +226,7 @@
 13.按照年龄排序 1 升序 -1 降序
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().sort(&#123;age: 1&#125;)</span><br></pre></td></tr></table></figure>
 14.查询 name = zhangsan, age = 22 的数据
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: <span class="string">&#x27;zhangsan&#x27;</span>, age: 22&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: <span class="string">'zhangsan'</span>, age: 22&#125;)</span><br></pre></td></tr></table></figure>
 15.查询前 5 条数据
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(5)</span><br></pre></td></tr></table></figure>
 16.查询 10 条以后的数据
@@ -481,6 +481,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">electron-vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
@@ -489,15 +493,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">electron-vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
