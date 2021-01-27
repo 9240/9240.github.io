@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://9240.github.io">
   <title>郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="IT 前端 技术">
-<meta name="keywords" content="web前端 分享">
 <meta property="og:type" content="website">
 <meta property="og:title" content="郑维维个人博客">
 <meta property="og:url" content="https://9240.github.io/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
 <meta property="og:description" content="IT 前端 技术">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="郑维维">
+<meta property="article:tag" content="web前端 分享">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="郑维维个人博客">
-<meta name="twitter:description" content="IT 前端 技术">
   
     <link rel="alternative" href="/atom.xml" title="郑维维个人博客" type="application/atom+xml">
   
@@ -36,8 +35,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -50,7 +49,7 @@
 			<img src="/img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">郑维维</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		<span id="busuanzi_value_site_pv" style="display: none;"></span>
 		
@@ -60,7 +59,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -105,7 +104,7 @@
 				<img src="/img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">郑维维</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -132,7 +131,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,6 +148,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浏览器插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/26/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/">浏览器插件</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/26/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2021-01-26T15:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>![](https://blog.9240.fun/myblogpic/img/210126.jpeg)</center>
+入职公司差不多一年，最令人难受的就是提加班申请了，吐槽一下公司的加班申请的填写，作为一位前端，当然是自己动手，丰衣足食了。如图，可以在 A 页面看到自己的打卡时间，在 B 页面填上一条条的打卡记录。
+首先在控制台往页面注入 jQuery
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertJquery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;HEAD&quot;</span>).item(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">var</span> js = <span class="built_in">document</span>.createElement(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">  js.src = <span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>;</span><br><span class="line">  head.appendChild(js);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">浏览器插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/26/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-electron-vue打包sdk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/06/electron-vue%E6%89%93%E5%8C%85sdk/">electron-vue打包sdk</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/06/electron-vue%E6%89%93%E5%8C%85sdk/" class="archive-article-date">
+  	<time datetime="2020-06-06T14:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于疫情，好像全世界都在搞视频会议，我们公司也不例外，最终方案</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">electron-vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/06/electron-vue%E6%89%93%E5%8C%85sdk/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-隐藏滚动条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -156,12 +307,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/31/隐藏滚动条/">隐藏滚动条</a>
+      <a class="article-title" href="/2020/05/31/%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/">隐藏滚动条</a>
     </h1>
   
 
         
-        <a href="/2020/05/31/隐藏滚动条/" class="archive-article-date">
+        <a href="/2020/05/31/%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/" class="archive-article-date">
   	<time datetime="2020-05-31T05:01:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
 </a>
         
@@ -171,7 +322,6 @@
       
         <p>兼容 IE10+、Safari、Chrome、火狐等浏览器的隐藏滚动条</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none; <span class="comment">/* Safari and Chrome */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">-ms-overflow-style</span>: none; <span class="comment">/* IE10+ */</span></span><br><span class="line">  <span class="attribute">scrollbar-width</span>: none; <span class="comment">/* 火狐(新) */</span></span><br><span class="line">  <span class="attribute">overflow</span>: -moz-scrollbars-none; <span class="comment">/* 火狐(旧) */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
 
       
@@ -194,7 +344,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/31/隐藏滚动条/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/31/%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/">展开全文 >></a>
         </p>
       
 
@@ -231,12 +381,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/Electron学习/">Electron学习</a>
+      <a class="article-title" href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/">Electron学习</a>
     </h1>
   
 
         
-        <a href="/2020/03/04/Electron学习/" class="archive-article-date">
+        <a href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2020-03-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
 </a>
         
@@ -244,21 +394,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center><img src="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=800" height="50%" width="50%"></center></p>
-<h2 id="app"><a href="#app" class="headerlink" title="app"></a>app</h2><h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h3><ol>
-<li><code>‘will-finish-launching’</code> 当应用程序完成基础的启动的时候被触发。</li>
-<li><code>‘ready’</code> 当 Electron 完成初始化时被触发</li>
-<li><code>‘window-all-closed’</code> 当所有的窗口都被关闭时触发。</li>
-<li><code>‘before-quit’</code> 在应用程序开始关闭窗口之前触发。</li>
-<li><code>‘will-quit’</code> 当所有窗口都已关闭并且应用程序将退出时发出。</li>
-<li><code>‘quit’</code> 在应用程序退出时发出。</li>
-<li><code>‘browser-window-blur’</code> 在 browserWindow 失去焦点时发出。</li>
-<li><code>‘browser-window-focus’</code> 在 browserWindow 获得焦点时发出。</li>
-<li><code>‘browser-window-created’</code> 在创建新的 browserWindow 时发出。</li>
-<li><code>‘web-contents-created’</code> 在创建新的 webContents 时发出。</li>
-<li><code>‘session-created’</code> 当 Electron创建了一个新的 session后被触发.</li>
-<li><code>‘remote-require’</code> 在 webContents 的渲染器进程中调用 remote.require() 时发出</li>
-<li><code>‘remote-get-global’</code> 在 webContents 的渲染器进程中调用 remote.getGlobal() 时发出。</li></ol>
+        <center><img src="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=800" height="50%" width="50%" ></center>
+## app
+### 钩子函数
+1. <code>'will-finish-launching'</code> 当应用程序完成基础的启动的时候被触发。
+2. <code>'ready'</code> 当 Electron 完成初始化时被触发
+3. <code>'window-all-closed'</code> 当所有的窗口都被关闭时触发。
+4. <code>'before-quit'</code> 在应用程序开始关闭窗口之前触发。
+5. <code>'will-quit'</code> 当所有窗口都已关闭并且应用程序将退出时发出。
+6. <code>'quit'</code> 在应用程序退出时发出。
+7. <code>'browser-window-blur'</code> 在 browserWindow 失去焦点时发出。
+8. <code>'browser-window-focus'</code> 在 browserWindow 获得焦点时发出。
+9. <code>'browser-window-created'</code> 在创建新的 browserWindow 时发出。
+10. <code>'web-contents-created'</code> 在创建新的 webContents 时发出。
+11. <code>'session-created'</code> 当 Electron创建了一个新的 session后被触发.
+12. <code>'remote-require'</code> 在 webContents 的渲染器进程中调用 remote.require() 时发出
+13. <code>'remote-get-global'</code> 在 webContents 的渲染器进程中调用 remote.getGlobal() 时发出。
         
       
 
@@ -282,7 +433,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/04/Electron学习/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -319,12 +470,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/javascript中的this/">JavaScript中的this</a>
+      <a class="article-title" href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/">JavaScript中的this</a>
     </h1>
   
 
         
-        <a href="/2019/08/16/javascript中的this/" class="archive-article-date">
+        <a href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/" class="archive-article-date">
   	<time datetime="2019-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
 </a>
         
@@ -332,9 +483,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-核心函数调用原语call方法"><a href="#1-核心函数调用原语call方法" class="headerlink" title="1.核心函数调用原语call方法"></a>1.核心函数调用原语call方法</h2><p>call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello.call(<span class="string">"9240"</span>, <span class="string">"world"</span>) <span class="comment">//9240</span></span><br></pre></td></tr></table></figure></p>
+        <h2 id="1-核心函数调用原语call方法"><a href="#1-核心函数调用原语call方法" class="headerlink" title="1.核心函数调用原语call方法"></a>1.核心函数调用原语call方法</h2><p>call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;hello &quot;</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello.call(<span class="string">&quot;9240&quot;</span>, <span class="string">&quot;world&quot;</span>) <span class="comment">//9240</span></span><br></pre></td></tr></table></figure>
 <p>hello()方法设置”9240”为this,并传入一个参数”world”。这是JavaScript函数调用的核心原语</p>
-<h2 id="2-简单函数调用"><a href="#2-简单函数调用" class="headerlink" title="2.简单函数调用"></a>2.简单函数调用</h2><p>一直调用函数的call()方法比较麻烦,所以JavaScript允许我们直接调用该方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello(<span class="string">'world'</span>) <span class="comment">//Window</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-简单函数调用"><a href="#2-简单函数调用" class="headerlink" title="2.简单函数调用"></a>2.简单函数调用</h2><p>一直调用函数的call()方法比较麻烦,所以JavaScript允许我们直接调用该方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;hello &quot;</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello(<span class="string">&#x27;world&#x27;</span>) <span class="comment">//Window</span></span><br></pre></td></tr></table></figure>
         
       
 
@@ -358,158 +511,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/16/javascript中的this/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js中apply,call,和bind函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/02/js中apply,call,和bind函数/">js中apply,call,和bind函数</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/02/js中apply,call,和bind函数/" class="archive-article-date">
-  	<time datetime="2019-05-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>apply()，call()，和bind()都是用来改变函数执行时的上下文，也就是改变this的指向问题，是prototype的方法，引入是因为js没有将this设置成形参。一般都是库里面用，不推荐自己使用call和apply。<br>call()和apply()唯一区别是参数不一样，call()是apply()的语法糖；<br>bind()是返回一个新函数，相比其他两个比较常用。而apply()和call()是立即调用。<br></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/02/js中apply,call,和bind函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-力软前端组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/力软前端组件/">力软前端组件</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/10/力软前端组件/" class="archive-article-date">
-  	<time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我看到的力软敏捷开发框架的文档写的相当简洁，且只有部分组件的文档。为了以后加入的伙伴能更快的上手，也为了自己提升开发效率，于是对着源代码写了下面的文档，由于项目需要，部分组件进行了细微修改，另外由于其他原因，所有组件名都更改为waxxx字样。</p>
-<center><img src="https://images.pexels.com/photos/2089379/pexels-photo-2089379.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt></center>
-
-<h2 id="一-时间查询框"><a href="#一-时间查询框" class="headerlink" title="一.时间查询框"></a>一.时间查询框</h2><p><strong>方法：$(‘#id’).wadate(op);</strong><br></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">力软敏捷开发6.0</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/力软前端组件/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/">展开全文 >></a>
         </p>
       
 
@@ -541,7 +543,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -553,7 +555,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 郑维维
+    		&copy; 2021 郑维维
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -633,7 +635,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,7 +643,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
+                <a href="javascript:void(0)" class="js-tag color3">electron-vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,11 +659,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">浏览器插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
               </li>
              
               <li class="article-tag-list-item">

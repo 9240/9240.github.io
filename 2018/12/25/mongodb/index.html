@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://9240.github.io">
   <title>mongodb基本操作 | 郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装1.下载安装下载mongodb，下载完，找到文件，双击，一路回车即可完成安装。 2.配置环境变量复制mongodb安装的bin目录到系统变量path中。">
-<meta name="keywords" content="mongodb">
+  <meta name="description" content="![](https:&#x2F;&#x2F;images.pexels.com&#x2F;photos&#x2F;875858&#x2F;pexels-photo-875858.png?auto&#x3D;compress&amp;cs&#x3D;tinysrgb&amp;dpr&#x3D;1&amp;w&#x3D;500) ## 安装 ### 1.下载安装 [下载mongodb](https:&#x2F;&#x2F;www.mongodb.com&#x2F; &quot;mongodb官网&quot;)，下载完，找到文件，双击，一路回车即可完成安装。 ##">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb基本操作">
 <meta property="og:url" content="https://9240.github.io/2018/12/25/mongodb/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
-<meta property="og:description" content="安装1.下载安装下载mongodb，下载完，找到文件，双击，一路回车即可完成安装。 2.配置环境变量复制mongodb安装的bin目录到系统变量path中。">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&cs=tinysrgb&dpr=1&w=500">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/mongodb1.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/mongodb2.png">
-<meta property="og:updated_time" content="2019-11-27T12:27:08.805Z">
+<meta property="og:description" content="![](https:&#x2F;&#x2F;images.pexels.com&#x2F;photos&#x2F;875858&#x2F;pexels-photo-875858.png?auto&#x3D;compress&amp;cs&#x3D;tinysrgb&amp;dpr&#x3D;1&amp;w&#x3D;500) ## 安装 ### 1.下载安装 [下载mongodb](https:&#x2F;&#x2F;www.mongodb.com&#x2F; &quot;mongodb官网&quot;)，下载完，找到文件，双击，一路回车即可完成安装。 ##">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-12-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-11-27T12:27:08.805Z">
+<meta property="article:author" content="郑维维">
+<meta property="article:tag" content="mongodb">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongodb基本操作">
-<meta name="twitter:description" content="安装1.下载安装下载mongodb，下载完，找到文件，双击，一路回车即可完成安装。 2.配置环境变量复制mongodb安装的bin目录到系统变量path中。">
-<meta name="twitter:image" content="https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&cs=tinysrgb&dpr=1&w=500">
   
     <link rel="alternative" href="/atom.xml" title="郑维维个人博客" type="application/atom+xml">
   
@@ -41,8 +37,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -55,7 +51,7 @@
 			<img src="/img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">郑维维</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		<span id="busuanzi_value_site_pv" style="display: none;"></span>
 		
@@ -65,7 +61,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -110,7 +106,7 @@
 				<img src="/img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">郑维维</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -137,7 +133,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -172,41 +168,77 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center><img src="https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt></center></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1.下载安装"></a>1.下载安装</h3><p><a href="https://www.mongodb.com/" title="mongodb官网" target="_blank" rel="noopener">下载mongodb</a>，下载完，找到文件，双击，一路回车即可完成安装。</p>
-<h3 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2.配置环境变量"></a>2.配置环境变量</h3><p>复制mongodb安装的bin目录到系统变量path中。<br><a id="more"></a></p>
-<h3 id="3-启动mongodb服务端"><a href="#3-启动mongodb服务端" class="headerlink" title="3.启动mongodb服务端"></a>3.启动mongodb服务端</h3><p>新建数据存储文件夹，执行命令行mongod –dbpath 文件夹，出现下图即服务端启动成功。</p>
-<p><center><img src="https://blog.9240.fun/myblogpic/img/mongodb1.png" alt></center></p>
-<h3 id="4-启动mongodb客户端"><a href="#4-启动mongodb客户端" class="headerlink" title="4.启动mongodb客户端"></a>4.启动mongodb客户端</h3><p>执行命令行mongo（mongo 127.0.0.1:27017）,出现下图即客户端启动成功。</p>
-<p><center><img src="https://blog.9240.fun/myblogpic/img/mongodb2.png" alt></center></p>
-<h3 id="5-准备工作做完，下面就可以愉快的敲代码了。"><a href="#5-准备工作做完，下面就可以愉快的敲代码了。" class="headerlink" title="5.准备工作做完，下面就可以愉快的敲代码了。"></a>5.准备工作做完，下面就可以愉快的敲代码了。</h3><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><h4 id="1-简单命令"><a href="#1-简单命令" class="headerlink" title="1.简单命令"></a>1.简单命令</h4><p>查看所有数据库列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show dbs</span><br></pre></td></tr></table></figure></p>
-<p>查看当前数据库的集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure></p>
-<p>使用数据库/创建数据库(创建操作时，需要往collections里插入数据才能创建成功)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ use dbname</span><br></pre></td></tr></table></figure></p>
-<p>数据库集合中插入数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.insert(&#123;<span class="string">"name"</span>:<span class="string">"zhangsan"</span>,<span class="string">"age"</span>:21&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>查看数据库集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure></p>
-<p>删除当前所在数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.dropDatabase()</span><br></pre></td></tr></table></figure></p>
-<p>删除指定集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.drop()</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-数据查找"><a href="#2-数据查找" class="headerlink" title="2.数据查找"></a>2.数据查找</h4><p>1.查找指定集合（userinfo）中所有数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find()</span><br></pre></td></tr></table></figure></p>
-<p>2.查询去掉后的当前聚集集合中的某列的重复数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.distinct(<span class="string">"name"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>3.查询 age = 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userinfo.find(&#123;<span class="string">"age"</span>:22&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>4.查询 age &gt; 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>5.查询 age &lt; 22 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>6.查询 age &gt;= 25 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>7.查询 age &lt;= 25 的记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>8.查询 age &gt;= 23 并且 age &lt;= 26<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 23, <span class="variable">$lte</span>: 26&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>9.查询 name 中包含 mongo 的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /mongo/&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>10.查询 name 中以 mongo 开头的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /^mongo/&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>11.查询指定列 name、age 数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>12.查询指定列 name、age 数据, age &gt; 25<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 25&#125;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>13.按照年龄排序 1 升序 -1 降序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().sort(&#123;age: 1&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>14.查询 name = zhangsan, age = 22 的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: <span class="string">'zhangsan'</span>, age: 22&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>15.查询前 5 条数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(5)</span><br></pre></td></tr></table></figure></p>
-<p>16.查询 10 条以后的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().skip(10)</span><br></pre></td></tr></table></figure></p>
-<p>17.查询在 5-10 之间的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(10).skip(5)</span><br></pre></td></tr></table></figure></p>
-<p>18.or 与 查询<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;<span class="variable">$or</span>: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>19.findOne 查询第一条数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.findOne()</span><br></pre></td></tr></table></figure></p>
-<p>20.查询某个结果集的记录条数 统计数量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;).count()</span><br></pre></td></tr></table></figure></p>
-
+        <center>![](https://images.pexels.com/photos/875858/pexels-photo-875858.png?auto=compress&cs=tinysrgb&dpr=1&w=500)</center>
+## 安装
+### 1.下载安装
+[下载mongodb](https://www.mongodb.com/ "mongodb官网")，下载完，找到文件，双击，一路回车即可完成安装。
+### 2.配置环境变量
+复制mongodb安装的bin目录到系统变量path中。
+<a id="more"></a>
+### 3.启动mongodb服务端
+新建数据存储文件夹，执行命令行mongod --dbpath 文件夹，出现下图即服务端启动成功。
+<center>![](https://blog.9240.fun/myblogpic/img/mongodb1.png)</center>
+### 4.启动mongodb客户端
+执行命令行mongo（mongo 127.0.0.1:27017）,出现下图即客户端启动成功。
+<center>![](https://blog.9240.fun/myblogpic/img/mongodb2.png)</center>
+### 5.准备工作做完，下面就可以愉快的敲代码了。
+## 学习
+#### 1.简单命令
+查看所有数据库列表
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show dbs</span><br></pre></td></tr></table></figure>
+查看当前数据库的集合
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure>
+使用数据库/创建数据库(创建操作时，需要往collections里插入数据才能创建成功)
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ use dbname</span><br></pre></td></tr></table></figure>
+数据库集合中插入数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.insert(&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;age&quot;</span>:21&#125;)</span><br></pre></td></tr></table></figure>
+查看数据库集合
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ show collections</span><br></pre></td></tr></table></figure>
+删除当前所在数据库
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.dropDatabase()</span><br></pre></td></tr></table></figure>
+删除指定集合
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.collectionsname.drop()</span><br></pre></td></tr></table></figure>
+#### 2.数据查找
+1.查找指定集合（userinfo）中所有数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find()</span><br></pre></td></tr></table></figure>
+2.查询去掉后的当前聚集集合中的某列的重复数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.distinct(<span class="string">&quot;name&quot;</span>)</span><br></pre></td></tr></table></figure>
+3.查询 age = 22 的记录
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userinfo.find(&#123;<span class="string">&quot;age&quot;</span>:22&#125;)</span><br></pre></td></tr></table></figure>
+4.查询 age > 22 的记录
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure>
+5.查询 age < 22 的记录
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lt</span>: 22&#125;&#125;)</span><br></pre></td></tr></table></figure>
+6.查询 age >= 25 的记录
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure>
+7.查询 age <= 25 的记录
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$lte</span>: 25&#125;&#125;)</span><br></pre></td></tr></table></figure>
+8.查询 age >= 23 并且 age <= 26
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 23, <span class="variable">$lte</span>: 26&#125;&#125;)</span><br></pre></td></tr></table></figure>
+9.查询 name 中包含 mongo 的数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /mongo/&#125;)</span><br></pre></td></tr></table></figure>
+10.查询 name 中以 mongo 开头的
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: /^mongo/&#125;)</span><br></pre></td></tr></table></figure>
+11.查询指定列 name、age 数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure>
+12.查询指定列 name、age 数据, age > 25
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gt</span>: 25&#125;&#125;, &#123;name: 1, age: 1&#125;)</span><br></pre></td></tr></table></figure>
+13.按照年龄排序 1 升序 -1 降序
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().sort(&#123;age: 1&#125;)</span><br></pre></td></tr></table></figure>
+14.查询 name = zhangsan, age = 22 的数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;name: <span class="string">&#x27;zhangsan&#x27;</span>, age: 22&#125;)</span><br></pre></td></tr></table></figure>
+15.查询前 5 条数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(5)</span><br></pre></td></tr></table></figure>
+16.查询 10 条以后的数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().skip(10)</span><br></pre></td></tr></table></figure>
+17.查询在 5-10 之间的数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find().<span class="built_in">limit</span>(10).skip(5)</span><br></pre></td></tr></table></figure>
+18.or 与 查询
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;<span class="variable">$or</span>: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+19.findOne 查询第一条数据
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.findOne()</span><br></pre></td></tr></table></figure>
+20.查询某个结果集的记录条数 统计数量
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ db.userInfo.find(&#123;age: &#123;<span class="variable">$gte</span>: 25&#125;&#125;).count()</span><br></pre></td></tr></table></figure>
       
 
       
@@ -315,7 +347,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/10/力软前端组件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/10/%E5%8A%9B%E8%BD%AF%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -369,7 +401,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 郑维维
+    		&copy; 2021 郑维维
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -449,7 +481,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,7 +489,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
+                <a href="javascript:void(0)" class="js-tag color3">electron-vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,11 +505,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">浏览器插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
               </li>
              
               <li class="article-tag-list-item">

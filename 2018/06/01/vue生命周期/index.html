@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://9240.github.io">
   <title>vue生命周期 | 郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下图是Vue文档里关于实例生命周期的解释图  先贴代码">
-<meta name="keywords" content="vue">
+  <meta name="description" content="下图是Vue文档里关于实例生命周期的解释图  ### 先贴代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue生命周期">
-<meta property="og:url" content="https://9240.github.io/2018/06/01/vue生命周期/index.html">
+<meta property="og:url" content="https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
-<meta property="og:description" content="下图是Vue文档里关于实例生命周期的解释图  先贴代码">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="下图是Vue文档里关于实例生命周期的解释图  ### 先贴代码">
+<meta property="og:locale">
 <meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/beforeCreate.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/created.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/beforeMount.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/mounted1.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/mounted2.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/beforeUpdate.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/updated1.png">
-<meta property="og:image" content="https://blog.9240.fun/myblogpic/img/updated2.png">
-<meta property="og:updated_time" content="2019-11-01T16:07:04.603Z">
+<meta property="article:published_time" content="2018-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-11-01T16:07:04.603Z">
+<meta property="article:author" content="郑维维">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue生命周期">
-<meta name="twitter:description" content="下图是Vue文档里关于实例生命周期的解释图  先贴代码">
 <meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
   
     <link rel="alternative" href="/atom.xml" title="郑维维个人博客" type="application/atom+xml">
@@ -47,8 +39,8 @@
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,7 +53,7 @@
 			<img src="/img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">郑维维</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		<span id="busuanzi_value_site_pv" style="display: none;"></span>
 		
@@ -71,7 +63,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -116,7 +108,7 @@
 				<img src="/img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">郑维维</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -143,7 +135,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -170,7 +162,7 @@
   
 
         
-        <a href="/2018/06/01/vue生命周期/" class="archive-article-date">
+        <a href="/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
   	<time datetime="2018-05-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
 </a>
         
@@ -179,19 +171,33 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>下图是Vue文档里关于实例生命周期的解释图</p>
-<p><center><img src="https://cn.vuejs.org/images/lifecycle.png" height="50%" width="50%"></center></p>
-<h3 id="先贴代码"><a href="#先贴代码" class="headerlink" title="先贴代码"></a>先贴代码</h3><a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changemsg"</span>&gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el:<span class="string">'#app'</span>,</span></span><br><span class="line">        data()&#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="javascript">                msg:<span class="string">'vue生命周期'</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            changemsg()&#123;</span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.msg = <span class="string">'我更新了'</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        beforeCreate()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"beforeCreate"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        created()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"created"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        beforeMount()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"beforeMount"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        mounted()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"mounted"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        beforeUpdate()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"beforeUpdate"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        updated()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"updated"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        beforeDestroy()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"beforeDestroy"</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        destroyed()&#123;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="keyword">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="keyword">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"destroyed"</span>)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>beforeCreate：组件实例化之前执行,data和$el都是undefined</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/beforeCreate.png" alt></center><br><br></li>
-<li><strong>created：组件实例化完毕，但页面还未显示，data可以被访问</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/created.png" alt></center><br><br></li>
-<li><strong>beforeMount：组件挂载前，页面仍未展示，但虚拟DOM已经配置</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/beforeMount.png" alt></center><br><br></li>
-<li><strong>mounted：组件挂载后，此方法执行后，页面显示</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/mounted1.png" alt></center><br><center><img src="https://blog.9240.fun/myblogpic/img/mounted2.png" alt></center><br><br></li>
-<li><strong>beforeUpdate：组件更新前，页面仍未更新，但虚拟DOM已经配置</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/beforeUpdate.png" alt></center><br><br></li>
-<li><strong>update：组件更新，此方法执行后，页面显示</strong><br><center><img src="https://blog.9240.fun/myblogpic/img/updated1.png" alt></center><br><center><img src="https://blog.9240.fun/myblogpic/img/updated2.png" alt></center><br><br></li>
-<li><strong>beforeDestory：组件销毁前</strong></li>
-<li><strong>destoryed：组件销毁</strong></li>
-</ol>
+<center><img src="https://cn.vuejs.org/images/lifecycle.png" height="50%" width="50%" ></center>
+### 先贴代码
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;changemsg&quot;</span>&gt;</span>更新<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="javascript">                msg:<span class="string">&#x27;vue生命周期&#x27;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">changemsg</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.msg = <span class="string">&#x27;我更新了&#x27;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;beforeCreate&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;created&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;beforeMount&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;mounted&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;beforeUpdate&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">updated</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;updated&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeDestroy</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;beforeDestroy&quot;</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">destroyed</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`msg: <span class="subst">$&#123;<span class="built_in">this</span>.msg&#125;</span>, el: <span class="subst">$&#123;<span class="built_in">this</span>.$el&#125;</span>`</span>)</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">&quot;destroyed&quot;</span>)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+1. **beforeCreate：组件实例化之前执行,data和$el都是undefined**
+<center>![](https://blog.9240.fun/myblogpic/img/beforeCreate.png)</center>
+<br>
+2. **created：组件实例化完毕，但页面还未显示，data可以被访问**
+<center>![](https://blog.9240.fun/myblogpic/img/created.png)</center>
+<br>
+3. **beforeMount：组件挂载前，页面仍未展示，但虚拟DOM已经配置**
+<center>![](https://blog.9240.fun/myblogpic/img/beforeMount.png)</center>
+<br>
+4. **mounted：组件挂载后，此方法执行后，页面显示**
+<center>![](https://blog.9240.fun/myblogpic/img/mounted1.png)</center>
+<center>![](https://blog.9240.fun/myblogpic/img/mounted2.png)</center>
+<br>
+5. **beforeUpdate：组件更新前，页面仍未更新，但虚拟DOM已经配置**
+<center>![](https://blog.9240.fun/myblogpic/img/beforeUpdate.png)</center>
+<br>
+6. **update：组件更新，此方法执行后，页面显示**
+<center>![](https://blog.9240.fun/myblogpic/img/updated1.png)</center>
+<center>![](https://blog.9240.fun/myblogpic/img/updated2.png)</center>
+<br>
+7. **beforeDestory：组件销毁前**
+8. **destoryed：组件销毁**
+
 <p>总结：vue实例从创建到销毁住哟有8个阶段。创建前、创建后、渲染前、选然后、更新前、更新后、销毁前、销毁后。<br>使用new Vue()创建vue的实例，然后调用Init()函数初始化对象信息；在渲染前会检查el属性，如果没有就调用$mount(el)方法；然后检查是否有template属性，如果有就编译template的内容进行渲染，如果没有，就编译el指定的节点内容进行渲染。然后创建虚拟DOM $el对象，并用替换挂载节点的内容渲染到试图上。在渲染后和更新后就可以进行dom操作。</p>
 
       
@@ -288,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2018/06/01/vue生命周期/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://9240.github.io/2018/06/01/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,7 +308,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/03/vue传值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/03/vue%E4%BC%A0%E5%80%BC/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -312,7 +318,7 @@
     </a>
   
   
-    <a href="/2018/05/30/github-pages-hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/05/30/github-pages-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">github pages+hexo搭建个人博客</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -356,7 +362,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 郑维维
+    		&copy; 2021 郑维维
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -436,7 +442,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +450,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gitbook</a>
+                <a href="javascript:void(0)" class="js-tag color3">electron-vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,11 +466,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">浏览器插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Electron</a>
               </li>
              
               <li class="article-tag-list-item">
