@@ -148,6 +148,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/03/Vue-init/">Vue init</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/03/Vue-init/" class="archive-article-date">
+  	<time datetime="2021-07-03T09:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="初始化阶段执行-init"><a href="#初始化阶段执行-init" class="headerlink" title="初始化阶段执行_init"></a>初始化阶段执行_init</h2><ol>
+<li>合并选项（根组件）</li>
+<li>1 规范化props 如：props[key] = {type:null}、props[key] = {type:Number}、props[key] = {type:xxx,…}</li>
+<li>2 规范化inject 如：inject[key] = {from:inject.key(真正provide的key)}</li>
+<li>3 规范化directives 如：dirs[key] = {bind:dirs[key],update:dirs[key]}</li>
+<li>4 合并components、directives、filters选项到用户选项</li>
+<li>initLifecycle：初始化$parent、$root、$children、$refs</li>
+<li>initEvents: 初始化自定义事件，子组件派发，子组件执行</li>
+<li>initRenter: 初始化父子vnode及插槽相关</li>
+<li>callHook(vm,’beforeCreate’): 执行beforeCreate钩子</li>
+<li>initInjections: 始化inject选项，向父辈遍历，找到inject.key.from对应的字段在父辈_provide中的值，代理到vm，没有响应式</li>
+<li>initState: 初始化状态</li>
+<li>1 initProps: props响应式（根组件）及代理（不在vm上的key）</li>
+<li>2 initMethods: 判重，props上已经定义的key不能在methods中重复，把methodKey定义到vm上，并绑定this为vm</li>
+<li>3 initData: 数据响应式。判重，设置代理，设置响应式<br>7.3.1 遍历data，利用Object.defineProperty为每个key提供get和set方法。get时收集依赖，set时通知更新。</li>
+<li>4 initComputed: 遍历computed，new一个watcher把computed方法传入，默认lazy:true。把computed定义到vm上。判重。</li>
+<li>5 initWatch: 遍历watch，new一个watcher，传入key和handler，返回取消watch函数</li>
+<li>initProvide: 把provide定义到vm._provide上，如果是函数执行之</li>
+<li>callHook(vm,’created’): 执行created钩子</li>
+<li>如果选项提供了el选项，执行挂载</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/03/Vue-init/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浏览器插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -434,84 +528,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript中的this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/">JavaScript中的this</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/" class="archive-article-date">
-  	<time datetime="2019-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-核心函数调用原语call方法"><a href="#1-核心函数调用原语call方法" class="headerlink" title="1.核心函数调用原语call方法"></a>1.核心函数调用原语call方法</h2><p>call()方法使用一个指定的this值和单独给出的一个或多个参数来调用一个函数（接收一个参数列表）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello.call(<span class="string">"9240"</span>, <span class="string">"world"</span>) <span class="comment">//9240</span></span><br></pre></td></tr></table></figure>
-<p>hello()方法设置”9240”为this,并传入一个参数”world”。这是JavaScript函数调用的核心原语</p>
-<h2 id="2-简单函数调用"><a href="#2-简单函数调用" class="headerlink" title="2.简单函数调用"></a>2.简单函数调用</h2><p>一直调用函数的call()方法比较麻烦,所以JavaScript允许我们直接调用该方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">world</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello "</span> + world);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hello(<span class="string">'world'</span>) <span class="comment">//Window</span></span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/16/javascript%E4%B8%AD%E7%9A%84this/">展开全文 >></a>
         </p>
       
 
