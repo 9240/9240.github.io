@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://9240.github.io">
   <title>Vue init | 郑维维个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初始化阶段执行_init 合并选项（根组件） 1 规范化props 如：props[key] &#x3D; {type:null}、props[key] &#x3D; {type:Number}、props[key] &#x3D; {type:xxx,…} 2 规范化inject 如：inject[key] &#x3D; {from:inject.key(真正provide的key)} 3 规范化directives 如：dirs[ke">
+  <meta name="description" content="初始化阶段执行_init 合并选项（根组件） 规范化props 如：props[key] &#x3D; {type:null}、props[key] &#x3D; {type:Number}、props[key] &#x3D; {type:xxx,…} 规范化inject 如：inject[key] &#x3D; {from:inject.key(真正provide的key)} 规范化directives 如：dirs[key] &#x3D; {">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue init">
 <meta property="og:url" content="https://9240.github.io/2021/07/03/Vue-init/index.html">
 <meta property="og:site_name" content="郑维维个人博客">
-<meta property="og:description" content="初始化阶段执行_init 合并选项（根组件） 1 规范化props 如：props[key] &#x3D; {type:null}、props[key] &#x3D; {type:Number}、props[key] &#x3D; {type:xxx,…} 2 规范化inject 如：inject[key] &#x3D; {from:inject.key(真正provide的key)} 3 规范化directives 如：dirs[ke">
+<meta property="og:description" content="初始化阶段执行_init 合并选项（根组件） 规范化props 如：props[key] &#x3D; {type:null}、props[key] &#x3D; {type:Number}、props[key] &#x3D; {type:xxx,…} 规范化inject 如：inject[key] &#x3D; {from:inject.key(真正provide的key)} 规范化directives 如：dirs[key] &#x3D; {">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-03T09:16:15.000Z">
-<meta property="article:modified_time" content="2021-07-18T09:20:45.838Z">
+<meta property="article:modified_time" content="2021-07-18T10:04:15.784Z">
 <meta property="article:author" content="郑维维">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -169,22 +169,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="初始化阶段执行-init"><a href="#初始化阶段执行-init" class="headerlink" title="初始化阶段执行_init"></a>初始化阶段执行_init</h2><ol>
-<li>合并选项（根组件）</li>
-<li>1 规范化props 如：props[key] = {type:null}、props[key] = {type:Number}、props[key] = {type:xxx,…}</li>
-<li>2 规范化inject 如：inject[key] = {from:inject.key(真正provide的key)}</li>
-<li>3 规范化directives 如：dirs[key] = {bind:dirs[key],update:dirs[key]}</li>
-<li>4 合并components、directives、filters选项到用户选项</li>
+<li>合并选项（根组件）<ol>
+<li>规范化props 如：props[key] = {type:null}、props[key] = {type:Number}、props[key] = {type:xxx,…}</li>
+<li>规范化inject 如：inject[key] = {from:inject.key(真正provide的key)}</li>
+<li>规范化directives 如：dirs[key] = {bind:dirs[key],update:dirs[key]}</li>
+<li>合并components、directives、filters选项到用户选项</li>
+</ol>
+</li>
 <li>initLifecycle：初始化$parent、$root、$children、$refs</li>
 <li>initEvents: 初始化自定义事件，子组件派发，子组件执行</li>
 <li>initRenter: 初始化父子vnode及插槽相关<a id="more"></a></li>
 <li>callHook(vm,’beforeCreate’): 执行beforeCreate钩子</li>
 <li>initInjections: 始化inject选项，向父辈遍历，找到inject.key.from对应的字段在父辈_provide中的值，代理到vm，没有响应式</li>
-<li>initState: 初始化状态</li>
-<li>1 initProps: props响应式（根组件）及代理（不在vm上的key）</li>
-<li>2 initMethods: 判重，props上已经定义的key不能在methods中重复，把methodKey定义到vm上，并绑定this为vm</li>
-<li>3 initData: 数据响应式。判重，设置代理，设置响应式<br>7.3.1 遍历data，利用Object.defineProperty为每个key提供get和set方法。get时收集依赖，set时通知更新。</li>
-<li>4 initComputed: 遍历computed，new一个watcher把computed方法传入，默认lazy:true。把computed定义到vm上。判重。</li>
-<li>5 initWatch: 遍历watch，new一个watcher，传入key和handler，返回取消watch函数</li>
+<li>initState: 初始化状态<ol>
+<li>initProps: props响应式（根组件）及代理（不在vm上的key）</li>
+<li>initMethods: 判重，props上已经定义的key不能在methods中重复，把methodKey定义到vm上，并绑定this为vm</li>
+<li>initData: 数据响应式。判重，设置代理，设置响应式<ol>
+<li>遍历data，利用Object.defineProperty为每个key提供get和set方法。get时收集依赖，set时通知更新。</li>
+</ol>
+</li>
+<li>initComputed: 遍历computed，new一个watcher把computed方法传入，默认lazy:true。把computed定义到vm上。判重。</li>
+<li>initWatch: 遍历watch，new一个watcher，传入key和handler，返回取消watch函数</li>
+</ol>
+</li>
 <li>initProvide: 把provide定义到vm._provide上，如果是函数执行之</li>
 <li>callHook(vm,’created’): 执行created钩子</li>
 <li>如果选项提供了el选项，执行挂载</li>
