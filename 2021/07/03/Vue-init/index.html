@@ -16,7 +16,7 @@
 <meta property="og:description" content="初始化阶段执行_init 合并选项（根组件） 1 规范化props 如：props[key] &#x3D; {type:null}、props[key] &#x3D; {type:Number}、props[key] &#x3D; {type:xxx,…} 2 规范化inject 如：inject[key] &#x3D; {from:inject.key(真正provide的key)} 3 规范化directives 如：dirs[ke">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-03T09:16:15.000Z">
-<meta property="article:modified_time" content="2021-07-18T09:18:26.645Z">
+<meta property="article:modified_time" content="2021-07-18T09:20:45.838Z">
 <meta property="article:author" content="郑维维">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -176,7 +176,7 @@
 <li>4 合并components、directives、filters选项到用户选项</li>
 <li>initLifecycle：初始化$parent、$root、$children、$refs</li>
 <li>initEvents: 初始化自定义事件，子组件派发，子组件执行</li>
-<li>initRenter: 初始化父子vnode及插槽相关</li>
+<li>initRenter: 初始化父子vnode及插槽相关<a id="more"></a></li>
 <li>callHook(vm,’beforeCreate’): 执行beforeCreate钩子</li>
 <li>initInjections: 始化inject选项，向父辈遍历，找到inject.key.from对应的字段在父辈_provide中的值，代理到vm，没有响应式</li>
 <li>initState: 初始化状态</li>
