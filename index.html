@@ -148,6 +148,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue-mount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/10/Vue-mount/">Vue mount</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/10/Vue-mount/" class="archive-article-date">
+  	<time datetime="2021-07-10T13:20:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="挂载阶段"><a href="#挂载阶段" class="headerlink" title="挂载阶段"></a>挂载阶段</h1><ol>
+<li>$mount(): 利用扩展的$mount确定模板，编译得到render函数</li>
+<li>1 模板优先级：render &gt; template &gt; el</li>
+<li>2 compileToFunctions：获得render函数及staticRenderFns函数并挂载到选项上<br>1.2.1 得到ast<br>1.2.2 优化ast<br>1.2.3 生成code字符串<br>1.2.4 code字符串转成function
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/10/Vue-mount/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vue-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -427,95 +504,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/31/%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Electron学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/">Electron学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-03-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center><img src="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=800" height="50%" width="50%" ></center>
-## app
-### 钩子函数
-1. <code>'will-finish-launching'</code> 当应用程序完成基础的启动的时候被触发。
-2. <code>'ready'</code> 当 Electron 完成初始化时被触发
-3. <code>'window-all-closed'</code> 当所有的窗口都被关闭时触发。
-4. <code>'before-quit'</code> 在应用程序开始关闭窗口之前触发。
-5. <code>'will-quit'</code> 当所有窗口都已关闭并且应用程序将退出时发出。
-6. <code>'quit'</code> 在应用程序退出时发出。
-7. <code>'browser-window-blur'</code> 在 browserWindow 失去焦点时发出。
-8. <code>'browser-window-focus'</code> 在 browserWindow 获得焦点时发出。
-9. <code>'browser-window-created'</code> 在创建新的 browserWindow 时发出。
-10. <code>'web-contents-created'</code> 在创建新的 webContents 时发出。
-11. <code>'session-created'</code> 当 Electron创建了一个新的 session后被触发.
-12. <code>'remote-require'</code> 在 webContents 的渲染器进程中调用 remote.require() 时发出
-13. <code>'remote-get-global'</code> 在 webContents 的渲染器进程中调用 remote.getGlobal() 时发出。
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/04/Electron%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
