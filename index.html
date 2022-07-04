@@ -148,6 +148,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-会跳舞的俄罗斯方块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/04/%E4%BC%9A%E8%B7%B3%E8%88%9E%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97/">会跳舞的俄罗斯方块</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/04/%E4%BC%9A%E8%B7%B3%E8%88%9E%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97/" class="archive-article-date">
+  	<time datetime="2022-07-04T03:16:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>闲着无聊刷抖音的时候，看到作者制作了一个大米跳舞视频，看评论是把视频一张张截图打印出来，然后把图片放到玻璃下面，用大米一张张摆出来，最后合成视频。作为一名程序员，这也太麻烦了吧。于是站在专业的角度分析了一下代码实现的可行性。即</p>
+<p>1.获取视频的每一帧</p>
+<p>2.去掉每一帧的背景只保留人物</p>
+<p>3.把每一帧透明部分填充大米图片，有颜色的部分填充白色</p>
+<p>4.修改后的图片合成视频</p>
+<p>如果能解决上面四个问题，那么就可以实现大米跳舞视频的制作了。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><ol>
+<li>第一个问题好说，利用canvas实时绘制视频帧，同时把canvas转成图片并下载。这里介绍一个简单的方法，使用ios快捷指令，如下：</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a310e9ba1bc541d5897f29868bb65275~tplv-k3u1fbpfcp-watermark.image" alt="video2img.jpg"></p>
+<ol start="2">
+<li>第二个问题用<a target="_blank" rel="noopener" href="https://github.com/nadermx/backgroundremover">backgroundremover</a>配合nodejs脚本实现，把视频帧的背景去掉，只保留人物</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; exit &#125; = <span class="built_in">require</span>(<span class="string">'process'</span>);</span><br><span class="line"><span class="keyword">const</span> exec = <span class="built_in">require</span>(<span class="string">"child_process"</span>).exec;</span><br><span class="line"><span class="keyword">let</span> i = <span class="number">1</span>,count = <span class="number">2070</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">removebg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;count)&#123;</span><br><span class="line">            <span class="keyword">var</span> cmd = <span class="string">`backgroundremover -i "/Users/9240z/personal/handleVideo/test/<span class="subst">$&#123;i&#125;</span>.png" -o "/Users/9240z/personal/handleVideo/removebg/<span class="subst">$&#123;i&#125;</span>.png"`</span>;</span><br><span class="line">            exec(cmd, <span class="function"><span class="keyword">function</span> (<span class="params">err, stdout, stderr</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                    reject(err);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stderr.lenght &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    reject(<span class="keyword">new</span> <span class="built_in">Error</span>(stderr.toString()));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> removebg()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            i++</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            exit()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>第三个问题，先遍历每张图片的像素点，然后更改像素点的值，在合适的区域填充大米图片并下载（这一步需要根据图片的色调灵活处理）</li>
+</ol>
+<ul>
+<li>遍历每张图片的像素点，然后更改像素点的值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ImageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; ImageData.data.length; i += <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ImageData.data[i] !== <span class="number">0</span> || ImageData.data[i + <span class="number">1</span>] !== <span class="number">0</span> || ImageData.data[i + <span class="number">2</span>] !== <span class="number">0</span>) &#123;</span><br><span class="line">        ImageData.data[i] = <span class="number">0</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">3</span>] = <span class="number">255</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ImageData.data[i] === <span class="number">0</span> &amp;&amp; ImageData.data[i + <span class="number">1</span>] === <span class="number">0</span> &amp;&amp; ImageData.data[i + <span class="number">2</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">        ImageData.data[i] = <span class="number">255</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">1</span>] = <span class="number">255</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">2</span>] = <span class="number">255</span>;</span><br><span class="line">        ImageData.data[i + <span class="number">3</span>] = <span class="number">255</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ctx.putImageData(ImageData, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></li>
+<li>在白色区域填充大米图片<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; canvas.height / mHeight; j++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; canvas.width / mWidth; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ImageData.data[i * mWidth * <span class="number">4</span> + j * mHeight * canvas.width * <span class="number">4</span>] === <span class="number">255</span> &amp;&amp; ImageData.data[i * mWidth * <span class="number">4</span> + j * mHeight * canvas.width * <span class="number">4</span> + <span class="number">1</span>] === <span class="number">255</span> &amp;&amp; ImageData.data[i * mWidth * <span class="number">4</span> + j * mHeight * canvas.width * <span class="number">4</span> + <span class="number">2</span>] === <span class="number">255</span>) &#123;</span><br><span class="line">            ctx.putImageData(mData[<span class="number">0</span>].data, i * mWidth, j * mHeight, <span class="number">0</span>, <span class="number">0</span>, mWidth, mHeight);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>下载</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">content, fileName</span>) </span>&#123; <span class="comment">//下载base64图片</span></span><br><span class="line">    <span class="keyword">var</span> base64ToBlob = <span class="function"><span class="keyword">function</span> (<span class="params">code</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> parts = code.split(<span class="string">';base64,'</span>);</span><br><span class="line">        <span class="keyword">let</span> contentType = parts[<span class="number">0</span>].split(<span class="string">':'</span>)[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">let</span> raw = <span class="built_in">window</span>.atob(parts[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">let</span> rawLength = raw.length;</span><br><span class="line">        <span class="keyword">let</span> uInt8Array = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(rawLength);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rawLength; ++i) &#123;</span><br><span class="line">            uInt8Array[i] = raw.charCodeAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Blob([uInt8Array], &#123;</span><br><span class="line">            type: contentType</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    <span class="keyword">let</span> blob = base64ToBlob(content); <span class="comment">//new Blob([content]);</span></span><br><span class="line">    <span class="keyword">let</span> evt = <span class="built_in">document</span>.createEvent(<span class="string">"HTMLEvents"</span>);</span><br><span class="line">    evt.initEvent(<span class="string">"click"</span>, <span class="literal">true</span>, <span class="literal">true</span>); <span class="comment">//initEvent 不加后两个参数在FF下会报错 事件类型，是否冒泡，是否阻止浏览器的默认行为</span></span><br><span class="line">    aLink.download = fileName;</span><br><span class="line">    aLink.href = URL.createObjectURL(blob);</span><br><span class="line">    aLink.click();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>第四个问题也可以借助ios快捷指令，如下：</li>
+</ol>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1977fa027132431883298442a21a710f~tplv-k3u1fbpfcp-watermark.image" alt="img2video.png"></p>
+<p>这样你就得到了大米跳舞视频了，但是这个大米很生硬，于是换成了俄罗斯方块。效果如下</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad4f79c462d94c2696d60149ee651d0c~tplv-k3u1fbpfcp-watermark.image" alt="图像.gif"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">backgroundRemover</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/04/%E4%BC%9A%E8%B7%B3%E8%88%9E%E7%9A%84%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vue-update" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -466,89 +568,6 @@
 
 
   
-    <article id="post-gitbook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/gitbook/">gitbook简单使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/05/gitbook/" class="archive-article-date">
-  	<time datetime="2018-12-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>![](https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)</center>
-## gitbook简单介绍
-gitbook是静态网页生成器，使用markdown语法。在2014年中发布第一个开源版本，在github上有20257个Star，他给自己的定位:现代而优雅，易于编辑，专为团队而建，智能见解，各种插件扩展GitBook。
-## gitbook简单使用
-### 1.在线编辑
-1.登录之后，在spaces面板点击+Create a new space,输入项目名，title，logo等信息。
-2.创建成功后，在spaces面板会出现刚刚创建的spaces，单击进去后，点击页面右下角的编辑图标即可编辑整个页面。
-3.编辑完成后，单击页面右下角的保存图标。访问[username].gitbook.io/[projectname]即可。
-
-<h3 id="2-本地编辑"><a href="#2-本地编辑" class="headerlink" title="2.本地编辑"></a>2.本地编辑</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">gitbook</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/05/gitbook/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -563,7 +582,7 @@ gitbook是静态网页生成器，使用markdown语法。在2014年中发布第�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 郑维维
+    		&copy; 2022 郑维维
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -656,6 +675,10 @@ gitbook是静态网页生成器，使用markdown语法。在2014年中发布第�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">backgroundRemover</a>
               </li>
             
             <div class="clearfix"></div>
